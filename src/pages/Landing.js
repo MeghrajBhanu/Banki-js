@@ -66,8 +66,9 @@ const Landing = () => {
     return(
     <React.Fragment>
       
-      {isLoading && <CardsShimmer></CardsShimmer>}
-      
+      {isLoading?<CardsShimmer></CardsShimmer>:
+      (
+        <>
       <div class="a-section a-spacing-small mt-1 bg-light">
         <span>
           1-{data.length} of over {data.length} results for
@@ -97,7 +98,7 @@ const Landing = () => {
       <h1 className="text-center m-1 text-secondary ">Welcome {user.name}</h1>
       <h6 className="text-center m-3 text-secondary">Here are your bank accounts linked with {user.pancard} </h6>
       {data?.length>0 ?<div class="wrapper-card">{mapped}</div>:<h5 className="text-center m-3 text-secondary">Couldnt find any accounts .</h5>}
-          
+</>)}
           
     </React.Fragment>
     );

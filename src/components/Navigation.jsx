@@ -20,7 +20,7 @@ const Navigation = () => {
   return (
     <>
       <nav className="navbar navbar-expand-md navbar-light bg-dark bg-gradient navbar-static-top  ">
-        <div className="container-fluid">
+        <div className="container">
           <Link className="navbar-brand nav-link active" to="/">
             <span className="text-light">App</span>
           </Link>

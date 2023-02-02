@@ -51,7 +51,7 @@ const BankDetails = () => {
                 <div class="preview-pic tab-content">
                   <div class="tab-pane active" id="pic-1">
                     <img
-                      src={image_map.get(data.bankName)}
+                      src={bank3}
                       className="bank-image"
                     />
                   </div>

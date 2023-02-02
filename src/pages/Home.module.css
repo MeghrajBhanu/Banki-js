@@ -1,0 +1,121 @@
+
+.first_container{
+    display:flex;
+    justify-content: space-around;
+}
+.image_flex{
+    flex:1;
+    width:50%;
+    margin-top:auto;
+    animation: drop 1s ease-in;
+}
+.content{
+    
+    flex:1;
+    margin-left:0px;
+    margin-right:200px;
+    justify-content: center;
+    margin-top: 100px;
+    animation: drop2 1s ease-in;
+    
+}
+
+.services_card{
+    margin-top:0px;
+    height:70vh;
+    display:flex;
+    flex-direction:row;
+    
+    flex-wrap:wrap;
+    justify-content: space-around;
+    
+}
+.title img{
+    width:100px;
+    margin-left:120px;
+    margin-top:40px;
+    margin-bottom: 40px;
+}
+
+.card-content{
+    font-size:20px;
+    margin-left:80px;
+    font-weight:bolder;
+    font-family:'Hello Pretty', sans-serif;
+    color: rgb(61, 47, 71);
+}
+.first_card{
+    
+    height:300px;
+    width:350px;
+    background-color: rgb(241, 233, 202);
+    margin-top:40px;
+    
+}
+.text{
+    
+    font-size:40px;
+    text-align: center;
+    margin-left:290px;
+    font-weight:bolder;
+    font-family: 'Hello Pretty', sans-serif;
+    color: rgb(61, 47, 71);
+}
+small{
+
+    margin-left:50px;
+    font-weight:lighter;
+    font-family:'Hello Pretty', sans-serif;
+    color: rgb(61, 47, 71);
+}
+.first_card:hover{
+    animation: big 1s ease-in;
+
+}
+@media only screen and (max-width: 1024px) {
+    .first_container{
+        flex-direction:column;
+    }
+
+}
+@keyframes big {
+    0%{
+        height:400px;
+        width:400px;
+    }
+    
+    100%{
+        height:300px;
+        width:350px;
+    }
+}
+@keyframes drop {
+    0%{
+        opacity:0;
+        transform:translateX(-80px);
+    }
+    100%{
+        opacity:1;
+        transform:translateX(0px);
+    }
+}
+@keyframes drop2 {
+    0%{
+        opacity:0;
+        transform:translateX(80px);
+    }
+    100%{
+        opacity:1;
+        transform:translateX(0px);
+    }
+}
+@keyframes drop3 {
+    0%{
+        opacity:0;
+        transform:translateY(80px);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0px);
+    }
+}
