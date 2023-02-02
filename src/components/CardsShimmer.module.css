@@ -1,0 +1,25 @@
+.shimmer_card{
+    
+    height:200px;
+    width:300px;
+    background-color: rgb(143, 142, 138);
+    margin:10px;
+}
+.card{
+    margin-top:10px;
+    display: flex;
+    flex-wrap:wrap;
+}
+.sort_bar{
+    display:block;
+    height:45px;
+    background-color: rgb(143, 142, 138);
+    margin-bottom:25px;
+}
+.title{
+    margin:auto;
+    width:50%;
+    background-color: rgb(143, 142, 138);
+    height:40px;
+    padding:20px;
+}
