@@ -24,19 +24,19 @@ const Register = () => {
   });
   const [disable, setDisable] = useState(true);
   const [isnameValid, setISNameValid] = useState({
-    isInputValid: true,
+    isInputValid: false,
     errorMessage: "",
   });
   const [isEmailValid, setISEmailValid] = useState({
-    isInputValid: true,
+    isInputValid: false,
     errorMessage: "",
   });
   const [isPanValid, setISPanValid] = useState({
-    isInputValid: true,
+    isInputValid: false,
     errorMessage: "",
   });
   const [isPassValid, setISPassValid] = useState({
-    isInputValid: true,
+    isInputValid: false,
     errorMessage: "",
   });
 
@@ -102,6 +102,7 @@ const Register = () => {
       .catch(() => {
         setSuccessful(false);
       });
+    setDisable(true);
     setTimeout(() => {
       dispatch(clearMessage());
     }, 9000);
@@ -257,6 +258,8 @@ const Register = () => {
                         >
                           {message === "registartion done" ? (
                             <p>
+                              Account has been registered
+                              <br />
                               Please <Link to="/login">Login</Link> to continue
 
                             </p>

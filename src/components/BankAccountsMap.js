@@ -26,24 +26,19 @@ const BankAccountsMap = ({
   
 }) => {
     const Navigate=useNavigate();
-    const [isOpen,setIsOpen]=useState(false)
+    
     const handleId=(e)=>{
         
-        openModal()
+       
         Navigate("/login/landing/"+id)
     }
-    function openModal() {
-        setIsOpen(true);
-      }
-      function closeModal() {
-        setIsOpen(false);
-      }
+    
     
   return (
     <div className="bank-card" >
     {/*<div class="col-sm-3 mt-2 mb-2 mx-5 p-1" ></div>*/}
       
-      <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles} ariaHideApp={false}>
+      {/* <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles} ariaHideApp={false}>
         <button onClick={closeModal}>X</button>
         <h4>Your details associated with {bankName}</h4>
         <h6>Registerd Name:{name}</h6>
@@ -62,20 +57,20 @@ const BankAccountsMap = ({
         <h6>Pancard: {pancard}</h6>
 
         
-      </Modal>
+      </Modal> */}
       
-      <div class="card" style={{ width: "18rem" }}>
-        <div class="card-body">
-          <h5 class="card-title">{bankName}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">
+      <div className="card" style={{ width: "18rem" }}>
+        <div className="card-body">
+          <h5 className="card-title">{bankName}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">
             {account_type + " Account"}
           </h6>
-          <p class="card-text ">
+          <p className="card-text ">
             FixedDeposits: {fd}
             <br />
             Total balance: {balance}
           </p>
-          <button class="btn btn-secondary" onClick={handleId}>
+          <button className="btn btn-secondary" onClick={handleId}>
                 View More
           </button>
           

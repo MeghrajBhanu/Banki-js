@@ -69,7 +69,7 @@ small{
     color: rgb(61, 47, 71);
 }
 .first_card:hover{
-    animation: big 1s ease-in;
+    animation: drop3 1s ease-in;
 
 }
 @media only screen and (max-width: 1024px) {
@@ -111,7 +111,7 @@ small{
 }
 @keyframes drop3 {
     0%{
-        opacity:0;
+        opacity:0.5;
         transform:translateY(80px);
     }
     100%{

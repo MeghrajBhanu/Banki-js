@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { get_all_pancard,get_all_sort_fixed_depo } from "../redux/actions/pan_actions";
+import { get_all_pancard,get_all_sort_fixed_depo,get_all_sort_account_type } from "../redux/actions/pan_actions";
 import BankAccountsMap from "../components/BankAccountsMap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -34,16 +34,24 @@ const Landing = () => {
       dispatch(get_all_sort_fixed_depo(user["pancard"]))
       
     }
+    if(selected.key==="Account_Type: Salary"){
+
+      dispatch(get_all_sort_account_type(user["pancard"],"Salary"))
+    }
+    if(selected.key==="Account_Type: Savings"){
+      dispatch(get_all_sort_account_type(user["pancard"],"Savings"))
+    }
     
   }, [selected]);
   
   
   
   const list = [
-    {key:"Sort By"},
+    {key:"Filter By"},
     { key: "None", value: "none" },
     { key: "FixedDeposits", value: "fixed_deposits" },
-    { key: "Account_Type", value: "account_type" },
+    { key: "Account_Type: Salary", value: "account_type:salary" },
+    { key: "Account_Type: Savings", value: "account_type:savings"}
   ];
 
   let mapped = data?.map((item) => {

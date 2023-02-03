@@ -27,15 +27,15 @@ const Login = () => {
 
   const[disable,setDisable]=useState(true);
   const [isEmailValid,setISEmailValid]=useState({
-    isInputValid: true,
+    isInputValid: false,
     errorMessage: ''
   })
   const [isPanValid,setISPanValid]=useState({
-    isInputValid: true,
+    isInputValid: false,
     errorMessage: ''
   })
   const [isPassValid,setISPassValid]=useState({
-    isInputValid: true,
+    isInputValid: false,
     errorMessage: ''
   })
   const handleInputValidation = (event )=> {
@@ -84,6 +84,7 @@ const Login = () => {
         .catch(() => {
           setSuccessful(false);
         });
+    setDisable(true);
     setTimeout(()=>{
           dispatch(clearMessage());
          

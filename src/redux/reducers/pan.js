@@ -8,6 +8,9 @@ import {
   FETCH_PANCARD_ALL_REQUEST,
   FETCH_ALL_SORT_BY_FIXED_DEPO_REQUEST,
   FETCH_ONE_ID_REQUEST,
+  FETCH_ALL_SORT_BY_Account_Type_REQUEST,
+  FETCH_ALL_SORT_BY_Account_Type_SUCCESS,
+  FETCH_ALL_SORT_BY_Account_Type_FAIL,
 } from "../actions/actiontypes";
 const initialState = { data: [], error: null, isLoading: true };
 
@@ -51,6 +54,24 @@ const pan = (state = initialState, action) => {
         error: payload,
         isLoading: false,
       };
+    case FETCH_ALL_SORT_BY_Account_Type_REQUEST:
+        return {
+          ...state,
+  
+          isLoading: true,
+        };
+      case FETCH_ALL_SORT_BY_Account_Type_SUCCESS:
+        return {
+          ...state,
+          data: payload,
+          isLoading: false,
+        };
+      case FETCH_ALL_SORT_BY_Account_Type_FAIL:
+        return {
+          ...state,
+          error: payload,
+          isLoading: false,
+        };
     case FETCH_ONE_ID_REQUEST:
       return {
         ...state,

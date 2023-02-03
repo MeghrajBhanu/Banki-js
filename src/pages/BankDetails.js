@@ -43,13 +43,13 @@ const BankDetails = () => {
         </section>
       </div>
   */}
-      <div class="container" style={{ "margin-top": "60px" }}>
-        <div class="card">
-          <div class="container-fliud">
-            <div class="wrapper row">
-              <div class="preview col-md-6">
-                <div class="preview-pic tab-content">
-                  <div class="tab-pane active" id="pic-1">
+      <div className="container" style={{ "margin-top": "60px" }}>
+        <div className="card">
+          <div className="container-fliud">
+            <div className="wrapper row">
+              <div className="preview col-md-6">
+                <div className="preview-pic tab-content">
+                  <div className="tab-pane active" id="pic-1">
                     <img
                       src={bank3}
                       className="bank-image"
@@ -57,8 +57,8 @@ const BankDetails = () => {
                   </div>
                 </div>
               </div>
-              <div class="details col-md-6">
-                <h2 class="primary-title mt-4 mb-2">{data.bankName}</h2>
+              <div className="details col-md-6">
+                <h2 className="primary-title mt-4 mb-2">{data.bankName}</h2>
 
                 <h4>Your details associated with {data.bankName}</h4>
                 <h6>Registerd Name:{data.name}</h6>

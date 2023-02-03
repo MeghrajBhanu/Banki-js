@@ -8,6 +8,9 @@ import {
   FETCH_PANCARD_ALL_REQUEST,
   FETCH_ALL_SORT_BY_FIXED_DEPO_REQUEST,
   FETCH_ONE_ID_REQUEST,
+  FETCH_ALL_SORT_BY_Account_Type_REQUEST,
+  FETCH_ALL_SORT_BY_Account_Type_SUCCESS,
+  FETCH_ALL_SORT_BY_Account_Type_FAIL,
 } from "./actiontypes";
 import FetchService from '../services/fetchservice'
 export const get_all_pancard = (pan) => (dispatch) => {
@@ -58,6 +61,34 @@ export const get_all_sort_fixed_depo = (pan) => (dispatch) => {
 
       dispatch({
         type: FETCH_ALL_SORT_BY_FIXED_DEPO_FAIL,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
+};
+
+export const get_all_sort_account_type = (pan,account_type) => (dispatch) => {
+  dispatch({
+    type:FETCH_ALL_SORT_BY_Account_Type_REQUEST,
+  })
+  FetchService.get_all_sort_account_type(pan,account_type).then(
+    (response) => {
+      
+      dispatch({
+        type: FETCH_ALL_SORT_BY_Account_Type_SUCCESS,
+        payload: response.data.data,
+      });
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response && error.response.data && error.response.data.msg) ||
+        error.message ||
+        error.toString();
+
+      dispatch({
+        type: FETCH_ALL_SORT_BY_Account_Type_FAIL,
         payload: message,
       });
       return Promise.reject();

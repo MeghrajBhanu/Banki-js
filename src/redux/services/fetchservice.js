@@ -10,6 +10,9 @@ const get_all_pancard = async(pan) => {
 const get_all_sort_fixed_depo = async(pan) => {
   return await axios.get(API_URL + "/pancard?panNum="+pan+"&fixedDepo=true",axiosConfig);
 };
+const get_all_sort_account_type = async(pan,account_type) => {
+  return await axios.get(API_URL + "/pancard?panNum="+pan+"&accounType="+account_type,axiosConfig);
+};
 
 
 const get_one_id = async(id) => {
@@ -19,5 +22,6 @@ const get_one_id = async(id) => {
 export default {
     get_all_pancard,
     get_one_id,
-    get_all_sort_fixed_depo
+    get_all_sort_fixed_depo,
+    get_all_sort_account_type,
 }
