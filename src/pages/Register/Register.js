@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../redux/actions/auth";
-import { clearMessage } from "../redux/actions/message";
-// import { AuthState } from '../redux/reducers/types';
+import { register } from "../../redux/actions/auth";
+import { clearMessage } from "../../redux/actions/message";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import {
   validateEmail,
+  validateName,
   validatePan,
   validatePass,
-} from "../utils/InputValidations";
+} from "../../utils/InputValidations";
+
+/**
+ * Registartion component handles users registration
+ *
+ * @returns {React.ReactElement}
+ */
 const Register = () => {
-  const Navigate=useNavigate()
+  
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(clearMessage());
+  }, []);
   const [successful, setSuccessful] = useState(false);
 
   const [valuess, setValues] = useState({
@@ -42,28 +51,28 @@ const Register = () => {
 
   const handleInputValidation = (event) => {
     if (event.target.name === "name") {
-      const { isInputValid } = validatePass(valuess.name);
+      const { isInputValid, errorMessage } = validateName(event.target.value);
       setISNameValid({
         isInputValid: isInputValid,
-        errorMessage: "Invalid Name",
+        errorMessage: errorMessage,
       });
     }
     if (event.target.name === "email") {
-      const { isInputValid, errorMessage } = validateEmail(valuess.email);
+      const { isInputValid, errorMessage } = validateEmail(event.target.value);
       setISEmailValid({
         isInputValid: isInputValid,
         errorMessage: errorMessage,
       });
     }
     if (event.target.name === "pancard") {
-      const { isInputValid, errorMessage } = validatePan(valuess.pancard);
+      const { isInputValid, errorMessage } = validatePan(event.target.value);
       setISPanValid({
         isInputValid: isInputValid,
         errorMessage: errorMessage,
       });
     }
     if (event.target.name === "password") {
-      const { isInputValid, errorMessage } = validatePass(valuess.password);
+      const { isInputValid, errorMessage } = validatePass(event.target.value);
       setISPassValid({
         isInputValid: isInputValid,
         errorMessage: errorMessage,
@@ -195,7 +204,17 @@ const Register = () => {
                       ) : null}
 
                       <div className="d-flex flex-row align-items-center mb-4">
-                        <i className="fas fa-key fa-lg me-3 fa-fw"></i>
+                        <i
+                          className="fas fa-key fa-lg me-3 fa-fw "
+                          data-coreui-toggle="tooltip"
+                          data-coreui-html="true"
+                          title="length: 8-15 characters ,
+                                lowercase letter : atleat one, 
+                                uppercase letter : atleat one,
+                                numeric digit :atleat one,
+                                special character : atleat one"
+                        ></i>
+
                         <div className="form-outline flex-fill mb-0">
                           <input
                             type="password"
@@ -218,22 +237,6 @@ const Register = () => {
                           {isPassValid.errorMessage}
                         </div>
                       ) : null}
-
-                      <div className="form-check d-flex justify-content-center mb-5">
-                        <input
-                          className="form-check-input me-2"
-                          type="checkbox"
-                          value=""
-                          id="form2Example3c"
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="form2Example3"
-                        >
-                          I agree all statements in{" "}
-                          <a href="#!">Terms of service</a>
-                        </label>
-                      </div>
 
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button
@@ -261,7 +264,6 @@ const Register = () => {
                               Account has been registered
                               <br />
                               Please <Link to="/login">Login</Link> to continue
-
                             </p>
                           ) : (
                             message

@@ -1,20 +1,26 @@
 import { useParams } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { get_one_id } from "../redux/actions/pan_actions";
+import { get_one_id } from "../../redux/actions/pan_actions";
 import {useNavigate} from "react-router-dom"
-import bank1 from "../assets/bank1.jpg";
-import bank2 from "../assets/bank2.png";
-import bank3 from "../assets/bank3.jpg";
-import bank4 from "../assets/bank4.png";
+
+import bank3 from "../../assets/bank3.jpg";
+import Modal from 'react-modal';
+
+import image_map from "../../utils/images";
 import "./BankDetails.module.css";
 
-const image_map = new Map([
-  ["Bank1", bank1],
-  ["Bank2", bank2],
-  ["Bank3", bank3],
-  ["Bank4", bank4],
-]);
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
 const BankDetails = () => {
   let { id } = useParams();
   //const dispatch = useDispatch();
@@ -27,11 +33,21 @@ const BankDetails = () => {
   const dat = useSelector((state) => state.pan.data);
   let dat1=dat.filter((item)=> item._id===id)
   let data=dat1[0]
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
 
   return (
     <div>
       {isLoading && <h1>Loading</h1>}
-      {console.log(data)}
+      <Modal isOpen={open} onRequestClose={onCloseModal} style={customStyles} ariaHideApp={false}>
+        <button onClick={onCloseModal}>X</button>
+        <h4>Dear user,</h4>
+        <h6>we have sent a requst to your bank for a revalidation</h6>
+        <h6>your details will be updated in 3 days</h6>
+        </Modal>
       {/*
       <div className={classes["container"]}>
         <img
@@ -48,14 +64,15 @@ const BankDetails = () => {
           <div className="container-fliud">
             <div className="wrapper row">
               <div className="preview col-md-6">
-                <div className="preview-pic tab-content">
-                  <div className="tab-pane active" id="pic-1">
+               
                     <img
-                      src={bank3}
+                      src={image_map[data.bankName]}
                       className="bank-image"
+                      style={{    "width": "100%",
+                        "object-fit": "cover",
+                        "marginTo": "45px"}}
                     />
-                  </div>
-                </div>
+                  
               </div>
               <div className="details col-md-6">
                 <h2 className="primary-title mt-4 mb-2">{data.bankName}</h2>
@@ -77,9 +94,19 @@ const BankDetails = () => {
                   {data._id}
                 </p>
                 <h6>Pancard: {data.pancard}</h6>
-                <button onClick={()=>{
-                    Navigate('/login/landing');
-                }}>return</button>
+                <div className="container mt-3">
+                    <div className="row d-flex justify-content-space-between ">
+                    <div className="col-lg-3 col-xl-4">
+                      <button className="btn btn-primary" onClick={()=>{
+                          Navigate('/login/landing');
+                      }}>return</button>
+                      </div>
+                      <div className="col-lg-3 col-xl-4">
+                      <button onClick={onOpenModal}>Not Your Account?</button>
+                      
+                      </div>
+                      </div>
+                      </div>
               </div>
             </div>
           </div>

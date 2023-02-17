@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+/**
+ * NoteFound is a error page which is rendered when route doesnt exist
+ * @returns {React.ReactElement}
+ */
 const PageNotFound = () => {
 
   return (

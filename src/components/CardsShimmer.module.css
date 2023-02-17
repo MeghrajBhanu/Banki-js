@@ -23,3 +23,18 @@
     height:40px;
     padding:20px;
 }
+.cards {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .card {
+    background-color: rgb(143, 142, 138);
+    width: 20em;
+    border-radius: 0.8em;
+    margin: 1em;
+    height:400px;
+   
+  }

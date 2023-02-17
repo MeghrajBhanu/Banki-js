@@ -3,8 +3,8 @@
     border: 1px solid #ddd;
     border-radius: 30px;
     padding: 5px;
-    width: 350px;
-    height:350px;
+    object-fit:cover;
+    width:100px;
 }
 .bank-imgage:hover {
     transform: scaleX(-1);

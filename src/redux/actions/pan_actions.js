@@ -19,7 +19,12 @@ export const get_all_pancard = (pan) => (dispatch) => {
   })
   FetchService.get_all_pancard(pan).then(
     (response) => {
-     
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+     console.log(response)
       dispatch({
         type: FETCH_PANCARD_ALL_SUCCESS,
         payload: response.data.data,
@@ -38,8 +43,16 @@ export const get_all_pancard = (pan) => (dispatch) => {
       });
       return Promise.reject();
     }
-  );
-};
+  ).catch(function(e){
+    console.log(e)
+      dispatch({
+        type: FETCH_PANCARD_ALL_FAIL,
+        payload: "server is down",
+      });
+      return Promise.reject();
+    })
+  }
+
 export const get_all_sort_fixed_depo = (pan) => (dispatch) => {
   dispatch({
     type:FETCH_ALL_SORT_BY_FIXED_DEPO_REQUEST,

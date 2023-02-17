@@ -1,6 +1,6 @@
-import bank1 from "../assets/bank1.jpg";
+import bank1 from "../assets/bank.png";
 import bank2 from "../assets/bank2.png";
-import bank3 from "../assets/bank3.jfif";
+import bank3 from "../assets/bank3.png";
 import bank4 from "../assets/bank4.png";
 
 const image_map={

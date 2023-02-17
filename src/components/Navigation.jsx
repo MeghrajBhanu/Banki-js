@@ -4,6 +4,12 @@ import { useSelector } from "react-redux";
 import {logout} from '../redux/actions/auth'
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router'
+
+/**
+ * Navigation is a UI component that is used for navigation to pages
+ *
+ * @returns {React.ReactElement}
+ */
 const Navigation = () => {
   const navigate=useNavigate();
   const dispatch=useDispatch();
