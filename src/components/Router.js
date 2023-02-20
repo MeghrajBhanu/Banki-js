@@ -1,44 +1,67 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-
+import { Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
-import Navigation from "./components/Navigation";
+import Navigation from "./Navigation";
 import Login from "../pages/Login";
 import { useSelector } from "react-redux";
 import Landing from "../pages/Landing";
-import PageNotFound from "./components/NotFound";
-const isLoggedIn=useSelector((store) => store.auth.isLoggedIn);
+import PageNotFound from "./NotFound";
+import BankDetails from "../pages/BankDetails";
 
+const Layout = () => (
+  <>
+    <Navigation />
+    <Outlet />
+  </>
+);
+
+const ProtectRoute = ({ children }) => {
+  const isLoggedIn = useSelector((store) => store.auth.isLoggedIn);
+  if (!isLoggedIn) {
+    return <Navigate to={"/"} replace={true}></Navigate>;
+  }
+  return children;
+};
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />,
-    errorElement:<PageNotFound />,
-    
+    element: <Layout />,
+    errorElement: <PageNotFound />,
     children: [
       {
+        path: "/",
+        element: <Home />,
+      },
+      {
         path: "/register",
-        element: <Register/>,
-        
+        element: <Register />,
       },
       {
         path: "/login",
-        element: <Login/>,
+        element: <Login />,
         children: [
-            {
-            path:"landing",
-            element:<Landing/>
-            }
-        ]
-
-      }
-
+          {
+            path: "landing",
+            element: (
+              <ProtectRoute>
+                <Landing />
+              </ProtectRoute>
+            ),
+          },
+        ],
+      },
+      {
+        path: "/login/landing/:id",
+        element: (
+          <ProtectRoute>
+            <BankDetails />
+          </ProtectRoute>
+        ),
+      },
     ],
   },
 ]);
+
 export default router;

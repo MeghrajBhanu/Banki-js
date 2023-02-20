@@ -1,8 +1,7 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/actions/auth";
 import { clearMessage } from "../../redux/actions/message";
-import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import {
   validateEmail,
@@ -13,18 +12,19 @@ import {
 
 /**
  * Registartion component handles users registration
- *
  * @returns {React.ReactElement}
  */
 const Register = () => {
-  
+  /**
+   * 1.Store and dispatcher
+   **/
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(clearMessage());
-  }, []);
-  const [successful, setSuccessful] = useState(false);
 
+  /**
+   * 2.Component State
+   **/
+  const [successful, setSuccessful] = useState(false);
   const [valuess, setValues] = useState({
     name: "",
     email: "",
@@ -49,6 +49,9 @@ const Register = () => {
     errorMessage: "",
   });
 
+  /**
+   * 3.functions for handling inputs and form submission
+   **/
   const handleInputValidation = (event) => {
     if (event.target.name === "name") {
       const { isInputValid, errorMessage } = validateName(event.target.value);
@@ -116,6 +119,17 @@ const Register = () => {
       dispatch(clearMessage());
     }, 9000);
   };
+
+  /**
+   * 4.Page onload code cleanup
+   **/
+  useEffect(() => {
+    dispatch(clearMessage());
+  }, []);
+
+  /**
+   * 5.Actual content rendered on screen
+   **/
   return (
     <section className="vh-100" style={{ backgroundColor: "#eee" }}>
       <div className="container h-100">
@@ -149,7 +163,7 @@ const Register = () => {
                       {!isnameValid.isInputValid ? (
                         <div
                           className="text-danger mb-3"
-                          style={{ "margin-left": "50px" }}
+                          style={{ marginLeft: "50px" }}
                         >
                           {isnameValid.errorMessage}
                         </div>
@@ -173,7 +187,7 @@ const Register = () => {
                       {!isEmailValid.isInputValid ? (
                         <div
                           className="text-danger mb-3"
-                          style={{ "margin-left": "50px" }}
+                          style={{ marginLeft: "50px" }}
                         >
                           {isEmailValid.errorMessage}
                         </div>
@@ -197,7 +211,7 @@ const Register = () => {
                       {!isPanValid.isInputValid ? (
                         <div
                           className="text-danger mb-3"
-                          style={{ "margin-left": "50px" }}
+                          style={{ marginLeft: "50px" }}
                         >
                           {isPanValid.errorMessage}
                         </div>
@@ -232,7 +246,7 @@ const Register = () => {
                       {!isPassValid.isInputValid ? (
                         <div
                           className="text-danger mb-3"
-                          style={{ "margin-left": "50px" }}
+                          style={{ marginLeft: "50px" }}
                         >
                           {isPassValid.errorMessage}
                         </div>

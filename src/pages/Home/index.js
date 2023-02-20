@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import home from "../../assets/home.jpg";
-import classes from "./Home.module.css";
+import classes from "./index.module.css";
 /**
  * Home component is default page when user is not logged in
  *
