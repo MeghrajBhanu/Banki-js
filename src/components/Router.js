@@ -16,12 +16,13 @@ const Layout = () => (
     <Navigation />
     <Outlet />
   </>
-);
+); 
 
-const ProtectRoute = ({ children }) => {
+const ProtectRoute = ({ children,redirect="/" }) => {
   const isLoggedIn = useSelector((store) => store.auth.isLoggedIn);
   if (!isLoggedIn) {
-    return <Navigate to={"/"} replace={true}></Navigate>;
+
+    return <Navigate to={redirect} replace={true}></Navigate>;
   }
   return children;
 };
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
           {
             path: "landing",
             element: (
-              <ProtectRoute>
+              <ProtectRoute >
                 <Landing />
               </ProtectRoute>
             ),

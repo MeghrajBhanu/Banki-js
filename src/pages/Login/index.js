@@ -117,6 +117,7 @@ const Login = () => {
                             <div className="form-outline flex-fill mb-0">
                               <input
                                 type="email"
+                                aria-label="email"
                                 name="email"
                                 value={valuess.email}
                                 id="form3Example3c"
@@ -141,6 +142,7 @@ const Login = () => {
                             <div className="form-outline flex-fill mb-0">
                               <input
                                 type="text"
+                                aria-label="pancard"
                                 name="pancard"
                                 value={valuess.pancard}
                                 id="form3Example4cd"
@@ -167,6 +169,7 @@ const Login = () => {
                             <div className="form-outline flex-fill mb-0">
                               <input
                                 type="password"
+                                aria-label="password"
                                 name="password"
                                 id="form3Example4c"
                                 className="form-control"

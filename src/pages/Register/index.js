@@ -149,6 +149,7 @@ const Register = () => {
                         <div className="form-outline flex-fill mb-0">
                           <input
                             type="text"
+                            aria-label="name"
                             name="name"
                             value={valuess.name}
                             id="form3Example1c"
@@ -173,6 +174,7 @@ const Register = () => {
                         <div className="form-outline flex-fill mb-0">
                           <input
                             type="email"
+                            aria-label="email"
                             name="email"
                             value={valuess.email}
                             id="form3Example3c"
@@ -197,6 +199,7 @@ const Register = () => {
                         <div className="form-outline flex-fill mb-0">
                           <input
                             type="text"
+                            aria-label="pancard"
                             name="pancard"
                             value={valuess.pancard}
                             id="form3Example4cd"
@@ -232,6 +235,7 @@ const Register = () => {
                         <div className="form-outline flex-fill mb-0">
                           <input
                             type="password"
+                            aria-label="password"
                             name="password"
                             id="form3Example4c"
                             className="form-control"
@@ -254,6 +258,8 @@ const Register = () => {
 
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button
+                          name="Register"
+                          aria-label="Register"
                           type="submit"
                           className="btn btn-primary btn-lg"
                           onClick={onSubmit}
