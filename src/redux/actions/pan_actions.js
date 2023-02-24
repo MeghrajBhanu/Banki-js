@@ -11,6 +11,12 @@ import {
   FETCH_ALL_SORT_BY_Account_Type_REQUEST,
   FETCH_ALL_SORT_BY_Account_Type_SUCCESS,
   FETCH_ALL_SORT_BY_Account_Type_FAIL,
+  FETCH_PANCARD_FLAGGED_ALL_FAIL,
+  FETCH_PANCARD_FLAGGED_ALL_REQUEST,
+  FETCH_PANCARD_FLAGGED_ALL_SUCCESS,
+  FLAG_ID_ONE_FAIL,
+  FLAG_ID_ONE_REQUEST,
+  FLAG_ID_ONE_SUCCESS,
 } from "./actiontypes";
 import FetchService from '../services/fetchservice'
 export const get_all_pancard = (pan) => (dispatch) => {
@@ -136,3 +142,72 @@ export const get_one_id = (id) => (dispatch) => {
     }
   );
 };
+
+export const flag_account= (id,isFlagged) => (dispatch) => {
+  dispatch({
+    type: FLAG_ID_ONE_REQUEST,
+    
+  });
+  FetchService.flag_account(id,isFlagged).then(
+    (response) => {
+     
+      dispatch({
+        type: FLAG_ID_ONE_SUCCESS,
+        
+      });
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response && error.response.data && error.response.data.msg) ||
+        error.message ||
+        error.toString();
+
+      dispatch({
+        type: FLAG_ID_ONE_FAIL,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
+};
+
+export const get_all_flag_accounts = (pan) => (dispatch) => {
+  dispatch({
+    type:FETCH_PANCARD_FLAGGED_ALL_REQUEST,
+  })
+  FetchService.get_all_flag_accounts(pan).then(
+    (response) => {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+     console.log(response)
+      dispatch({
+        type: FETCH_PANCARD_FLAGGED_ALL_SUCCESS,
+        payload: response.data.data,
+      });
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response && error.response.data && error.response.data.msg) ||
+        error.message ||
+        error.toString();
+
+      dispatch({
+        type: FETCH_PANCARD_FLAGGED_ALL_FAIL,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  ).catch(function(e){
+    console.log(e)
+    dispatch({
+        type: FETCH_PANCARD_FLAGGED_ALL_FAIL,
+        payload: "server is down",
+      });
+      return Promise.reject();
+    })
+  }

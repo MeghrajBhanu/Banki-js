@@ -10,6 +10,9 @@ import { useSelector } from "react-redux";
 import Landing from "../pages/Landing";
 import PageNotFound from "./NotFound";
 import BankDetails from "../pages/BankDetails";
+import Flagged from "../pages/Flagged";
+import Modal from "./Modal/Modal";
+import Modal1 from "./Modal/Modal1";
 
 const Layout = () => (
   <>
@@ -35,6 +38,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      
       {
         path: "/register",
         element: <Register />,
@@ -58,6 +62,22 @@ const router = createBrowserRouter([
         element: (
           <ProtectRoute>
             <BankDetails />
+          </ProtectRoute>
+        ),
+      },
+      {
+        path:"/success",
+        element:<ProtectRoute ><Modal /></ProtectRoute>,
+      },
+      {
+        path:"/unflagged",
+        element:<ProtectRoute ><Modal1 /></ProtectRoute>,
+      },
+      {
+        path: "/login/flagged",
+        element: (
+          <ProtectRoute>
+            <Flagged />
           </ProtectRoute>
         ),
       },

@@ -2,6 +2,9 @@ import { useNavigate } from "react-router";
 import "../pages/Landing/Landing.css";
 import image_map from "../utils/images";
 import classes from "../pages/Landing/index.module.css";
+import { useDispatch } from "react-redux";
+import { flag_account } from "../redux/actions/pan_actions";
+
 /**
  * BankAccountsMap  is a UI component that maps user bank account details
  *    in form of cards
@@ -18,24 +21,34 @@ const BankAccountsMap = ({
   fd,
   bankName,
   balance,
+  flagged=false,
 }) => {
   const Navigate = useNavigate();
+  const dispatch=useDispatch();
   const handleId = (e) => {
-    Navigate("/login/landing/" + id);
+    if(!flagged)Navigate("/login/landing/" + id);
+    else{
+      dispatch(flag_account(id,false));
+      Navigate("/unflagged");
+    }
   };
   return (
+    
     <div className={classes["card"]}>
       <img src={image_map[bankName]} alt="bankLogo" />
       <div className={classes["card-body"]}>
-        <span className="h6">{bankName}</span> --{" "}
-        <span className="h3-h">{account_type + " Account"}</span>
-        <p>
+        <div className="text-center">
+        <span className="h6 ">{bankName}</span>
+        <span > --</span>
+        <span className="h3-h" >{account_type + " Account"}</span>
+        </div>
+        <p className="text-center">
           FixedDeposits: {fd}
           <br />
           Total balance: {balance}
         </p>
-        <button className="btn btn-secondary" onClick={handleId}>
-          View More
+        <button className="btn btn-secondary" onClick={handleId} style={{marginLeft:"95px"}}>
+          {flagged?"UnFlag":"View More"}
         </button>
       </div>
     </div>

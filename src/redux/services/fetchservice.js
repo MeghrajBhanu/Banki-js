@@ -19,9 +19,18 @@ const get_one_id = async(id) => {
     return await axios.get(API_URL + "/"+id,axiosConfig);
   };
 
+const get_all_flag_accounts=async(pan)=>{
+    return await axios.get(API_URL + "/pancard/flagged?panNum="+pan+"&isFlagged=true",axiosConfig);
+  }
+const flag_account=async(id,isFlagged)=>{
+  return await axios.patch(API_URL + "/pancard/patch?id="+id+"&isFlagged="+isFlagged,axiosConfig);
+}
+
 export default {
     get_all_pancard,
     get_one_id,
     get_all_sort_fixed_depo,
     get_all_sort_account_type,
+    get_all_flag_accounts,
+    flag_account,
 }

@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <>
       <div className={classes["first_container"]}>
-        <img src={home} className={classes["image_flex"]}></img>
+        <img src={home} className={classes["image_flex"]} alt="landing"></img>
 
         <div className={classes["content"]}>
           <p className="lead-text text-center p-2 h5 mt-5">
@@ -70,20 +70,20 @@ const Home = () => {
         <div className={classes["services_card"]}>
           <div className={classes["first_card"]}>
             <span className={classes["title"]}>
-              <img src="https://w7.pngwing.com/pngs/303/653/png-transparent-emoticon-smiley-emoji-smiley-miscellaneous-stock-photography-smile.png" />
+              <img src="https://w7.pngwing.com/pngs/303/653/png-transparent-emoticon-smiley-emoji-smiley-miscellaneous-stock-photography-smile.png" alt="user friendly" />
               <p className={classes["card-content"]}>User Friendly Website</p>
             </span>
           </div>
           <div className={classes["first_card"]}>
             <span className={classes["title"]}>
-              <img src="https://i.pinimg.com/originals/6c/ab/18/6cab181e30143b581fd6570c99af98cb.jpg" />
+              <img src="https://i.pinimg.com/originals/6c/ab/18/6cab181e30143b581fd6570c99af98cb.jpg" alt="singledestination" />
               <p className={classes["card-content"]}>Saves your time</p>
               <small>single destination for your bank accounts</small>
             </span>
           </div>
           <div className={classes["first_card"]}>
             <span className={classes["title"]}>
-              <img src="https://www.pngfind.com/pngs/m/45-450511_emoji-cool-png-you-rock-emoji-transparent-png.png"></img>
+              <img src="https://www.pngfind.com/pngs/m/45-450511_emoji-cool-png-you-rock-emoji-transparent-png.png" alt="security"></img>
               <p className={classes["card-content"]}>
                 Security is our priority
               </p>
@@ -91,6 +91,33 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <section className={classes["contact"]}>
+			<div className={classes["overlay"]}>
+				<div className={classes["container"]}>
+					<div className={classes["row"]}>
+						<div className="col-md-6 wow " data-wow-delay="0.6s" style={{visibility: "visible", animationDelay: "0.6s",animationName: "fadeInUp"}}>
+							<div className={classes["fadeInUp"]}>
+              <h2 className="text-uppercase mb-4">Contact Us</h2>
+							<p>Got any sugesstions , requests , queries? Reach us out at below address </p>
+							<address>
+								<p><span className={classes["fa"]}><i className="fa fa-map-marker"></i></span>Hyderabad, Telangana, India</p>
+								<p><span className={classes["fa"]}><i class="fa fa-phone"></i></span> 0234 234234</p>
+								<p><span className={classes["fa"]}><i class="fa fa-envelope"></i></span> app@site.com</p>
+							</address>
+              </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+    <footer>
+			<div class="container">
+				<div class="row">
+					<p>Copyright © 2023 Bhanu | Design:  <Link to="/">Home</Link></p>
+				</div>
+			</div>
+		</footer>
     </>
   );
 };

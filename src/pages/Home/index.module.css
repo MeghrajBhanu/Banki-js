@@ -70,8 +70,84 @@ small{
 }
 .first_card:hover{
     animation: drop3 1s ease-in;
-
+    
 }
+.fa{
+    display: inline-block;
+    background: #28a7e9;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+footer {
+    background: #fff;
+    font-weight: 400;
+    text-align: center;
+    padding: 20px;
+    display: block;
+}
+.contact {
+    background: url('https://templatemo.com/templates/templatemo_446_boxer/images/contact-bg.jpg') no-repeat;
+    background-size: cover;
+    color: #fff;
+    display:block;
+}
+.container {
+    
+    margin-left: 100px;
+}
+.container::before {
+    display: table;
+    content: " ";
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.row:before {
+    display: table;
+    content: " ";
+}
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation: fadeInUp 1s ease-in;
+    animation-fill-mode: both;
+}
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+
+
+
 @media only screen and (max-width: 1024px) {
     .first_container{
         flex-direction:column;

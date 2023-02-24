@@ -69,6 +69,13 @@ const Navigation = () => {
               )}
               {isLoggedIn && (
                 <li className="nav-item">
+                  <NavLink className="nav-link active" to="/login/flagged">
+                    <span className="text-light">Flagged</span>
+                  </NavLink>
+                </li>
+              )}
+              {isLoggedIn && (
+                <li className="nav-item">
                   <button className="btn btn-primary" onClick={handleClick}>
                     Logout
                   </button>

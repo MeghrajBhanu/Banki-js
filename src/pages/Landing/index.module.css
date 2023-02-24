@@ -21,6 +21,10 @@ h1 {
     justify-content: space-around;
   }
   
+  .flex{
+    display:flex;
+  }
+
   .card {
     background: #fff;
     width: 20em;

@@ -11,6 +11,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import CardsShimmer from "../../components/CardsShimmer";
 import classes from "./index.module.css";
+import SharedHeader from "../../components/SharedHeader";
 
 /**
  * Landing component displays users homepage after loggingin
@@ -59,19 +60,20 @@ const Landing = () => {
   ];
 
   let mapped = data?.slice(page * 10 - 10, page * 10).map((item) => {
-    return (
-      <BankAccountsMap
-        key={item._id}
-        id={item._id}
-        name={item.name}
-        email={item.email}
-        bankName={item.bankName}
-        pancard={item.pancard}
-        account_type={item.AccountType}
-        fd={item.FixedDeposits}
-        balance={item.Balance}
-      ></BankAccountsMap>
-    );
+    
+      return (
+        <BankAccountsMap
+          key={item._id}
+          id={item._id}
+          name={item.name}
+          email={item.email}
+          bankName={item.bankName}
+          pancard={item.pancard}
+          account_type={item.AccountType}
+          fd={item.FixedDeposits}
+          balance={item.Balance}
+        ></BankAccountsMap>
+      );
   });
   const selectPageHandler = (page_i) => {
     if (
@@ -91,15 +93,25 @@ const Landing = () => {
             <div>error</div>
           ) : (
             <>
-              <div class="a-section a-spacing-small mt-1 bg-light">
+              
+
+              {/* <h1 className="text-center m-1 text-secondary ">
+                Welcome {user.name}
+              </h1>
+              <h6 className="text-center m-3 text-secondary">
+                Here are your bank accounts linked with {user.pancard}{" "}
+              </h6> */}
+              <SharedHeader name={user.name} pancard={user.pancard}/>
+              <div class="mb-4 a-section a-spacing-small mt-1 bg-light">
+                <div className={classes["flex"]}>
                 <span>
                   {(page - 1) * 10 + 1}-
                   {Math.min((page - 1) * 10 + 10, data.length)} of over{" "}
-                  {data.length} results for
+                  {data.length} results for <span>{" " }</span>
                 </span>
-                <span> </span>
-                <span className="text-warning">"{user.pancard}"</span>
-                <span>
+                
+                <span className="text-warning" style={{flex:"2"}}> "{user.pancard}"</span>
+                <span className={classes["absolute"]}>
                   <DropdownButton
                     id="dropdown-basic-button"
                     variant="secondary"
@@ -117,14 +129,8 @@ const Landing = () => {
                     })}
                   </DropdownButton>
                 </span>
+                </div>
               </div>
-
-              <h1 className="text-center m-1 text-secondary ">
-                Welcome {user.name}
-              </h1>
-              <h6 className="text-center m-3 text-secondary">
-                Here are your bank accounts linked with {user.pancard}{" "}
-              </h6>
               {data?.length > 0 ? (
                 <>
                   <div className={classes["cards"]}>{mapped}</div>
