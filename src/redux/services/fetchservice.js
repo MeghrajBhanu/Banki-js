@@ -18,7 +18,9 @@ const get_all_sort_account_type = async(pan,account_type) => {
 const get_one_id = async(id) => {
     return await axios.get(API_URL + "/"+id,axiosConfig);
   };
-
+  const get_all_bankAccounts = async(pan,bankName) => {
+    return await axios.get(API_URL + "/pancard/bank?panNum="+pan+"&bankName="+bankName,axiosConfig);
+  };
 const get_all_flag_accounts=async(pan)=>{
     return await axios.get(API_URL + "/pancard/flagged?panNum="+pan+"&isFlagged=true",axiosConfig);
   }
@@ -32,5 +34,7 @@ export default {
     get_all_sort_fixed_depo,
     get_all_sort_account_type,
     get_all_flag_accounts,
+    get_all_bankAccounts,
     flag_account,
+    
 }

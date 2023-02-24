@@ -41,11 +41,12 @@ const Navigation = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav align-items-center ms-auto mb-2 mb-lg-0">
+            {!isLoggedIn && (
               <li className="nav-item">
                 <NavLink className="nav-link active" to="/">
                   <span className="text-light">Home</span>
                 </NavLink>
-              </li>
+              </li>)}
               {!isLoggedIn && (
                 <li className="nav-item ms-lg-3">
                   <NavLink className="nav-link active" to="/login">
@@ -71,6 +72,13 @@ const Navigation = () => {
                 <li className="nav-item">
                   <NavLink className="nav-link active" to="/login/flagged">
                     <span className="text-light">Flagged</span>
+                  </NavLink>
+                </li>
+              )}
+              {isLoggedIn && (
+                <li className="nav-item">
+                  <NavLink className="nav-link active" to="/login/banks">
+                    <span className="text-light">Banks</span>
                   </NavLink>
                 </li>
               )}

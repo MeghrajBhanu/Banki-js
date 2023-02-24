@@ -11,6 +11,7 @@ import Landing from "../pages/Landing";
 import PageNotFound from "./NotFound";
 import BankDetails from "../pages/BankDetails";
 import Flagged from "../pages/Flagged";
+import Banks from "../pages/Banks";
 import Modal from "./Modal/Modal";
 import Modal1 from "./Modal/Modal1";
 
@@ -78,6 +79,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectRoute>
             <Flagged />
+          </ProtectRoute>
+        ),
+      },
+      {
+        path: "/login/banks",
+        element: (
+          <ProtectRoute>
+            <Banks />
           </ProtectRoute>
         ),
       },
