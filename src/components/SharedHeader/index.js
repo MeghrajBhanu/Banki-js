@@ -1,6 +1,7 @@
 import classes from "./index.module.css";
-
+import { useSelector } from "react-redux";
 const SharedHeader = ({ name, pancard ,flagged}) => {
+  const user=useSelector(state=>state.auth.user);
   return (
     
       <section className={classes["shared_header"]}>
@@ -19,7 +20,7 @@ const SharedHeader = ({ name, pancard ,flagged}) => {
                 <div className={classes["fadeInUp"]}>
                   <h2 className="text-center mb-4">Welcome {name} !</h2>
                   <p className="text-center mt-3">
-                    Here are your {flagged} bank accounts linked with {pancard}
+                    Here are your {flagged} bank accounts linked with {pancard?pancard:user.pancard}
                   </p>
                 </div>
               </div>

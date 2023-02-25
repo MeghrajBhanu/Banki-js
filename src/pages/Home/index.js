@@ -102,8 +102,8 @@ const Home = () => {
 							<p>Got any sugesstions , requests , queries? Reach us out at below address </p>
 							<address>
 								<p><span className={classes["fa"]}><i className="fa fa-map-marker"></i></span>Hyderabad, Telangana, India</p>
-								<p><span className={classes["fa"]}><i class="fa fa-phone"></i></span> 0234 234234</p>
-								<p><span className={classes["fa"]}><i class="fa fa-envelope"></i></span> app@site.com</p>
+								<p><span className={classes["fa"]}><i className="fa fa-phone"></i></span> 0234 234234</p>
+								<p><span className={classes["fa"]}><i className="fa fa-envelope"></i></span> app@site.com</p>
 							</address>
               </div>
 						</div>
@@ -112,8 +112,8 @@ const Home = () => {
 			</div>
 		</section>
     <footer>
-			<div class="container">
-				<div class="row">
+			<div className="container">
+				<div className="row">
 					<p>Copyright © 2023 Bhanu | Design:  <Link to="/">Home</Link></p>
 				</div>
 			</div>

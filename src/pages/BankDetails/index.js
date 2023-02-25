@@ -1,47 +1,89 @@
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Modal from "react-modal";
+
 import image_map from "../../utils/images";
 import { flag_account } from "../../redux/actions/pan_actions";
 import "./index.module.css";
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
+
 const BankDetails = () => {
   let { id } = useParams();
   const dispatch = useDispatch();
   const Navigate = useNavigate();
 
   const isLoading = useSelector((state) => state.pan.isLoading);
-  //   useEffect(() => {
-  //     dispatch(get_one_id(id));
-  //   }, []);
   const dat = useSelector((state) => state.pan.data);
   let dat1 = dat.filter((item) => item._id === id);
   let data = dat1[0];
-  const [open1, setOpen1] = useState(false);
+  // const customStyles = {
+  //   content: {
+  //     top: "50%",
+  //     left: "50%",
+  //     right: "auto",
+  //     bottom: "auto",
+  //     marginRight: "-50%",
+  //     transform: "translate(-50%, -50%)",
+  //   },
+  // };
+  // const [open1, setOpen1] = useState(false);
 
-  const onOpenModal1 = () => setOpen1(true);
-  const onCloseModal1 = () => setOpen1(false);
+  // const onOpenModal1 = () => setOpen1(true);
+  // const onCloseModal1 = () => setOpen1(false);
   const handleModal = () => {
-    onCloseModal1();
-    dispatch(flag_account(id,true))
-    Navigate("/success")
-    
+    dispatch(flag_account(id, true));
+    Navigate("/success");
   };
   return (
     <div>
       {isLoading && <h1>Loading</h1>}
-      <Modal
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                Attention!
+              </h5>
+              <button
+                type="button"
+                className="close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              Are you sure you want to flag this account?
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                No
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-dismiss="modal"
+                onClick={handleModal}
+              >
+                Yes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <Modal
         isOpen={open1}
         onRequestClose={onCloseModal1}
         style={customStyles}
@@ -52,7 +94,7 @@ const BankDetails = () => {
           <button onClick={handleModal}>Yes</button>
           <button onClick={onCloseModal1}>No</button>
         </span>
-      </Modal>
+      </Modal> */}
 
       <div className="container" style={{ marginTop: "60px" }}>
         <div className="card">
@@ -112,7 +154,12 @@ const BankDetails = () => {
                       </button>
                     </div>
                     <div className="col-lg-3 col-xl-4">
-                      <button onClick={onOpenModal1}>Not Your Account?</button>
+                      <button
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
+                        Not Your Account?
+                      </button>
                     </div>
                   </div>
                 </div>

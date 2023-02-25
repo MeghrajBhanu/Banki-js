@@ -18,7 +18,7 @@ const get_all_sort_account_type = async(pan,account_type) => {
 const get_one_id = async(id) => {
     return await axios.get(API_URL + "/"+id,axiosConfig);
   };
-  const get_all_bankAccounts = async(pan,bankName) => {
+const get_all_bankAccounts = async(pan,bankName) => {
     return await axios.get(API_URL + "/pancard/bank?panNum="+pan+"&bankName="+bankName,axiosConfig);
   };
 const get_all_flag_accounts=async(pan)=>{
@@ -26,6 +26,9 @@ const get_all_flag_accounts=async(pan)=>{
   }
 const flag_account=async(id,isFlagged)=>{
   return await axios.patch(API_URL + "/pancard/patch?id="+id+"&isFlagged="+isFlagged,axiosConfig);
+}
+const create_account=async(obj)=>{
+  return await axios.post(API_URL + "/pancard/create",obj,axiosConfig);
 }
 
 export default {
@@ -36,5 +39,5 @@ export default {
     get_all_flag_accounts,
     get_all_bankAccounts,
     flag_account,
-    
+    create_account,
 }

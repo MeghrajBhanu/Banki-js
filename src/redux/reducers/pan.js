@@ -17,6 +17,9 @@ import {
   FLAG_ID_ONE_SUCCESS,
   FLAG_ID_ONE_FAIL,
   FLAG_ID_ONE_REQUEST,
+  FETCH_PANCARD_BANK_ALL_REQUEST,
+  FETCH_PANCARD_BANK_ALL_SUCCESS,
+  FETCH_PANCARD_BANK_ALL_FAIL,
 } from "../actions/actiontypes";
 const initialState = { data: [], error: null, isLoading: true, success: null };
 
@@ -26,6 +29,7 @@ const pan = (state = initialState, action) => {
   switch (type) {
     case FETCH_PANCARD_ALL_REQUEST:
     case FETCH_PANCARD_FLAGGED_ALL_REQUEST:
+    case FETCH_PANCARD_BANK_ALL_REQUEST:
       return {
         ...state,
         success: null,
@@ -33,6 +37,7 @@ const pan = (state = initialState, action) => {
       };
     case FETCH_PANCARD_ALL_SUCCESS:
     case FETCH_PANCARD_FLAGGED_ALL_SUCCESS:
+    case FETCH_PANCARD_BANK_ALL_SUCCESS:
       return {
         ...state,
         data: payload,
@@ -41,6 +46,7 @@ const pan = (state = initialState, action) => {
       };
     case FETCH_PANCARD_ALL_FAIL:
     case FETCH_PANCARD_FLAGGED_ALL_FAIL:
+    case FETCH_PANCARD_BANK_ALL_FAIL:
       return {
         ...state,
         error: payload,

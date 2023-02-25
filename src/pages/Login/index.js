@@ -132,7 +132,7 @@ const Login = () => {
                           {!isEmailValid.isInputValid ? (
                             <div
                               className="text-danger mb-3"
-                              style={{ "margin-left": "50px" }}
+                              style={{ "marginLeft": "50px" }}
                             >
                               {isEmailValid.errorMessage}
                             </div>
@@ -157,7 +157,7 @@ const Login = () => {
                           {!isPanValid.isInputValid ? (
                             <div
                               className="text-danger mb-3"
-                              style={{ "margin-left": "50px" }}
+                              style={{ "marginLeft": "50px" }}
                             >
                               {isPanValid.errorMessage}
                             </div>
@@ -184,7 +184,7 @@ const Login = () => {
                           {!isPassValid.isInputValid ? (
                             <div
                               className="text-danger mb-3"
-                              style={{ "margin-left": "50px" }}
+                              style={{ "marginLeft": "50px" }}
                             >
                               {isPassValid.errorMessage}
                             </div>

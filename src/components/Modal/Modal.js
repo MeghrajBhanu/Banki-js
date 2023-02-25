@@ -11,9 +11,9 @@ export default function Modal() {
       <div className="py-5 my-5 container-fluid">
         <div className="row px-0 mt-3 align-content-center">
           <div className="card mx-auto" style={{ width: "25rem" }}>
-            <h4 className="card-header">
+            <h6 className="card-header">
               <h6>Sucessfull!</h6>
-            </h4>
+            </h6>
             <i className="bi bi-check-circle-fill text-success" style={{ fontSize: "50px", textAlign: "center" }}></i>
 
             <div className="card-body">

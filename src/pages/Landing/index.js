@@ -102,7 +102,7 @@ const Landing = () => {
                 Here are your bank accounts linked with {user.pancard}{" "}
               </h6> */}
               <SharedHeader name={user.name} pancard={user.pancard}/>
-              <div class="mb-4 a-section a-spacing-small mt-1 bg-light">
+              <div className="mb-4 a-section a-spacing-small mt-1 bg-light">
                 <div className={classes["flex"]}>
                 <span>
                   {(page - 1) * 10 + 1}-

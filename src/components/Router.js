@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import Landing from "../pages/Landing";
 import PageNotFound from "./NotFound";
 import BankDetails from "../pages/BankDetails";
+import BankAllAccounts from "../pages/BankAllAccounts";
 import Flagged from "../pages/Flagged";
 import Banks from "../pages/Banks";
 import Modal from "./Modal/Modal";
@@ -20,12 +21,11 @@ const Layout = () => (
     <Navigation />
     <Outlet />
   </>
-); 
+);
 
-const ProtectRoute = ({ children,redirect="/" }) => {
+const ProtectRoute = ({ children, redirect = "/" }) => {
   const isLoggedIn = useSelector((store) => store.auth.isLoggedIn);
   if (!isLoggedIn) {
-
     return <Navigate to={redirect} replace={true}></Navigate>;
   }
   return children;
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      
+
       {
         path: "/register",
         element: <Register />,
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
           {
             path: "landing",
             element: (
-              <ProtectRoute >
+              <ProtectRoute>
                 <Landing />
               </ProtectRoute>
             ),
@@ -67,12 +67,20 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:"/success",
-        element:<ProtectRoute ><Modal /></ProtectRoute>,
+        path: "/success",
+        element: (
+          <ProtectRoute>
+            <Modal />
+          </ProtectRoute>
+        ),
       },
       {
-        path:"/unflagged",
-        element:<ProtectRoute ><Modal1 /></ProtectRoute>,
+        path: "/unflagged",
+        element: (
+          <ProtectRoute>
+            <Modal1 />
+          </ProtectRoute>
+        ),
       },
       {
         path: "/login/flagged",
@@ -89,6 +97,16 @@ const router = createBrowserRouter([
             <Banks />
           </ProtectRoute>
         ),
+        children: [
+          {
+            path: ":bankName",
+            element: (
+              <ProtectRoute>
+                <BankAllAccounts/>
+              </ProtectRoute>
+            ),
+          },
+        ],
       },
     ],
   },
