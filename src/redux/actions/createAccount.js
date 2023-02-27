@@ -1,11 +1,15 @@
-import {CREATE_ACCOUNT_SUCCESS ,CREATE_ACCOUNT_FAIL } from "./actiontypes";
+import {CREATE_ACCOUNT_SUCCESS ,CREATE_ACCOUNT_FAIL,SET_MESSAGE, } from "./actiontypes";
 import Fetchservice from "../services/fetchservice";
-export const login = (obj) => (dispatch) => {
+export const create_account = (obj) => (dispatch) => {
     return Fetchservice.create_account(obj).then(
       (data) => {
         dispatch({
           type: CREATE_ACCOUNT_SUCCESS,
-          payload: { user: data.msg },
+          payload: { success: data.msg },
+        });
+        dispatch({
+          type: SET_MESSAGE,
+          payload: data.msg,
         });
   
         return Promise.resolve();

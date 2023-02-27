@@ -20,6 +20,7 @@ import {
   FETCH_PANCARD_BANK_ALL_REQUEST,
   FETCH_PANCARD_BANK_ALL_SUCCESS,
   FETCH_PANCARD_BANK_ALL_FAIL,
+  
 } from "./actiontypes";
 import FetchService from '../services/fetchservice'
 export const get_all_pancard = (pan) => (dispatch) => {

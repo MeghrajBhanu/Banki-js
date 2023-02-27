@@ -111,7 +111,7 @@ const Login = () => {
                           Login
                         </p>
 
-                        <form className="mx-1 mx-md-4">
+                        <form className="mx-1 mx-md-4 ">
                           <div className="d-flex flex-row align-items-center mb-3">
                             <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div className="form-outline flex-fill mb-0">
@@ -132,7 +132,7 @@ const Login = () => {
                           {!isEmailValid.isInputValid ? (
                             <div
                               className="text-danger mb-3"
-                              style={{ "marginLeft": "50px" }}
+                              style={{ marginLeft: "50px" }}
                             >
                               {isEmailValid.errorMessage}
                             </div>
@@ -157,7 +157,7 @@ const Login = () => {
                           {!isPanValid.isInputValid ? (
                             <div
                               className="text-danger mb-3"
-                              style={{ "marginLeft": "50px" }}
+                              style={{ marginLeft: "50px" }}
                             >
                               {isPanValid.errorMessage}
                             </div>
@@ -181,10 +181,18 @@ const Login = () => {
                               />
                             </div>
                           </div>
+                          {/* <small
+                            id="passwordHelpBlock"
+                            class="form-text text-muted"
+                          >
+                            Your password must be 8-20 characters long, contain
+                            letters and numbers, and must not contain spaces,
+                            special characters, or emoji.
+                          </small> */}
                           {!isPassValid.isInputValid ? (
                             <div
                               className="text-danger mb-3"
-                              style={{ "marginLeft": "50px" }}
+                              style={{ marginLeft: "50px" }}
                             >
                               {isPassValid.errorMessage}
                             </div>

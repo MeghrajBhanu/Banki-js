@@ -5,7 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from './redux/store';
-
+import "aos/dist/aos.css";
+import AOS from "aos";
+AOS.init();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
