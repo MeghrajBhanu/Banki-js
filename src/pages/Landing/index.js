@@ -9,7 +9,7 @@ import BankAccountsMap from "../../components/BankAccountsMap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
-import CardsShimmer from "../../components/CardsShimmer";
+import CardsShimmer from "../../components/CardsShimmer/CardsShimmer";
 import classes from "./index.module.css";
 import SharedHeader from "../../components/SharedHeader";
 
@@ -33,6 +33,7 @@ const Landing = () => {
     setSelected({ key, value: event.target.value });
   };
   useEffect(() => {
+    
     dispatch(get_all_pancard(user["pancard"]));
   }, []);
   useEffect(() => {
@@ -93,14 +94,6 @@ const Landing = () => {
             <div>error</div>
           ) : (
             <>
-              
-
-              {/* <h1 className="text-center m-1 text-secondary ">
-                Welcome {user.name}
-              </h1>
-              <h6 className="text-center m-3 text-secondary">
-                Here are your bank accounts linked with {user.pancard}{" "}
-              </h6> */}
               <SharedHeader name={user.name} pancard={user.pancard}/>
               <div className="mb-4 a-section a-spacing-small mt-1 bg-light">
                 <div className={classes["flex"]}>
@@ -116,6 +109,7 @@ const Landing = () => {
                     id="dropdown-basic-button"
                     variant="secondary"
                     className="float-right"
+                    style={{marginRight:"25px"}}
                     onSelect={handleSelect}
                     size="sm"
                     title={selected?.key || list[0].key}

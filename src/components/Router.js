@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
-import Navigation from "./Navigation";
+import Navigation from "./Navbar/Navigation";
 import Login from "../pages/Login";
 import { useSelector } from "react-redux";
 import Landing from "../pages/Landing";

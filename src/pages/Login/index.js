@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/actions/auth";
 import { useNavigate } from "react-router";
 import { clearMessage } from "../../redux/actions/message";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   validateEmail,
   validatePan,
   validatePass,
 } from "../../utils/InputValidations";
 import { Outlet } from "react-router-dom";
+import { LOGIN_REQUEST } from "../../redux/actions/actiontypes";
 /**
  * Login component handles user Login
  *
@@ -17,18 +20,27 @@ import { Outlet } from "react-router-dom";
 const Login = () => {
   useEffect(() => {
     dispatch(clearMessage());
+    dispatch({ type: LOGIN_REQUEST });
   }, []);
   const [valuess, setValues] = useState({
     email: "",
     password: "",
     pancard: "",
   });
+  const user = useSelector((state) => state.auth.user);
+
+  const loginerror = useSelector((state) => state.auth.error);
+  useEffect(() => {
+    if (loginerror) {
+      toast.error(loginerror);
+    }
+  }, [loginerror]);
   const [successful, setSuccessful] = useState(false);
   const handleChange = (e) => {
     setValues({ ...valuess, [e.target.name]: e.target.value });
     handleInputValidation(e);
   };
-  const { message } = useSelector((state) => state.message);
+
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,6 +58,7 @@ const Login = () => {
     isInputValid: false,
     errorMessage: "",
   });
+
   const handleInputValidation = (event) => {
     if (event.target.name === "email") {
       const { isInputValid, errorMessage } = validateEmail(event.target.value);
@@ -79,27 +92,25 @@ const Login = () => {
     }
   };
   const onSubmit = (e) => {
-    e.preventDefault();
-
-    dispatch(login(valuess))
+    dispatch(login(valuess, navigate))
       .then((data) => {
         setSuccessful(true);
-
-        navigate("/login/landing");
       })
       .catch(() => {
         setSuccessful(false);
       });
+
     setDisable(true);
   };
+
   return (
     <>
       {isLoggedIn && <Outlet />}
       {!isLoggedIn && (
-        <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+        <section className="vh-100 mt-1" style={{ backgroundColor: "#eee" }}>
           <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
-              <div className="col-lg-12 col-xl-11">
+              <div className="col-lg-12 col-xl-11" style={{marginBottom:"50px"}}>
                 <div
                   className="card text-black"
                   style={{ borderRadius: "25px" }}
@@ -177,18 +188,11 @@ const Login = () => {
                                 value={valuess.password}
                                 onChange={handleChange}
                                 onBlur={handleInputValidation}
+                                title="Must contain at least one number,one special character and one uppercase and lowercase letter, and at least 8 or more characters"
                                 required="required"
                               />
                             </div>
                           </div>
-                          {/* <small
-                            id="passwordHelpBlock"
-                            class="form-text text-muted"
-                          >
-                            Your password must be 8-20 characters long, contain
-                            letters and numbers, and must not contain spaces,
-                            special characters, or emoji.
-                          </small> */}
                           {!isPassValid.isInputValid ? (
                             <div
                               className="text-danger mb-3"
@@ -209,20 +213,8 @@ const Login = () => {
                             </button>
                           </div>
                         </form>
-                        {message && (
-                          <div className="form-group">
-                            <div
-                              className={
-                                successful
-                                  ? "alert alert-success"
-                                  : "alert alert-danger"
-                              }
-                              role="alert"
-                            >
-                              {message}
-                            </div>
-                          </div>
-                        )}
+
+                        {loginerror && <ToastContainer />}
                       </div>
                     </div>
                   </div>

@@ -1,0 +1,26 @@
+.nav-link:hover{
+    color:#f8fc2d !important;
+}
+.nav-link:active{
+    color:yellow !important;
+    font-weight: 700 !important;
+}
+.nav-link {
+    display:inline-block !important;
+    color:white !important;
+    font-size: 1rem !important;
+    text-decoration: none !important;
+}
+.text-dec{
+    list-style: none !important;
+}
+.nav-item{
+    margin:0 .625rem !important;
+    list-style: none !important;
+    
+}
+.active{
+    color:yellow !important;
+    font-weight: 700 !important;
+    text-shadow: #f8fc2d !important;
+}

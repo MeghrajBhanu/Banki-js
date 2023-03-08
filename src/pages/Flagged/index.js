@@ -5,6 +5,10 @@ import BankAccountsMap from "../../components/BankAccountsMap";
 import classes from "../Landing/index.module.css";
 import SharedHeader from "../../components/SharedHeader";
 
+/**
+ * Flagged Page return All the flagged Accounts
+ * @returns {React.ReactElement}
+ */
 const Flagged = () => {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();

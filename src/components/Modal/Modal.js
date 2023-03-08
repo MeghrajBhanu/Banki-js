@@ -11,9 +11,6 @@ export default function Modal() {
       <div className="py-5 my-5 container-fluid">
         <div className="row px-0 mt-3 align-content-center">
           <div className="card mx-auto" style={{ width: "25rem" }}>
-            <h6 className="card-header">
-              <h6>Sucessfull!</h6>
-            </h6>
             <i className="bi bi-check-circle-fill text-success" style={{ fontSize: "50px", textAlign: "center" }}></i>
 
             <div className="card-body">
@@ -29,7 +26,7 @@ export default function Modal() {
             </div>
             <div className="card-footer d-flex">
               
-              <button className="btn btn-info rounded-pill w-100 ms-2 " onClick={handleclick}>
+              <button className="btn btn-primary rounded-pill w-100 ms-2 " onClick={handleclick}>
                 Return 
               </button>
             </div>

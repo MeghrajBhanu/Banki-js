@@ -2,8 +2,12 @@ import image_map from "../../utils/images";
 import classes from "./index.module.css"
 import SharedHeader from "../../components/SharedHeader/index"
 import { useNavigate } from "react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router";
+/**
+ * Banks Page Shows all the Banks User has Accounts in.
+ * @returns {React.FunctionComponent}
+ */
 const Banks = () => {
   const Navigate=useNavigate();
   const [clicked,setClicked]=useState(false)

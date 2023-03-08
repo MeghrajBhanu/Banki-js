@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-import "../pages/Landing/Landing.css";
 import image_map from "../utils/images";
 import classes from "../pages/Landing/index.module.css";
 import { useDispatch } from "react-redux";

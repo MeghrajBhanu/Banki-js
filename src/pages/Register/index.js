@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/actions/auth";
 import { clearMessage } from "../../redux/actions/message";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   validateEmail,
   validateName,
   validatePan,
   validatePass,
 } from "../../utils/InputValidations";
+import { REGISTER_REQUEST } from "../../redux/actions/actiontypes";
 
 /**
  * Registartion component handles users registration
@@ -20,6 +23,9 @@ const Register = () => {
    **/
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
+  const registererror = useSelector((state) => state.auth.error);
+  const success = useSelector((state) => state.auth.success);
+  const Navigate = useNavigate();
 
   /**
    * 2.Component State
@@ -29,6 +35,7 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
+    confirmpassword:"",
     pancard: "",
   });
   const [disable, setDisable] = useState(true);
@@ -45,6 +52,10 @@ const Register = () => {
     errorMessage: "",
   });
   const [isPassValid, setISPassValid] = useState({
+    isInputValid: false,
+    errorMessage: "",
+  });
+  const [isConfirmPassValid,setISConfirmPassValid]= useState({
     isInputValid: false,
     errorMessage: "",
   });
@@ -81,26 +92,41 @@ const Register = () => {
         errorMessage: errorMessage,
       });
     }
+    if (event.target.name === "confirmpassword") {
+      const { isInputValid, errorMessage } = validatePass(event.target.value);
+      if(errorMessage!=="")setISConfirmPassValid({
+                    isInputValid: isInputValid,
+                    errorMessage: errorMessage,
+                  });
+      else{
+        if(isInputValid && event.target.value===valuess.password){
+          setISConfirmPassValid({isInputValid: true,
+                  errorMessage: ""})}
+        else{
+          setISConfirmPassValid({isInputValid: false,
+            errorMessage: "Password Doesnt Match"})}
+        }
+        }
+      
+    
     if (
       !isnameValid.isInputValid ||
       !isEmailValid.isInputValid ||
       !isPanValid.isInputValid ||
-      !isPassValid.isInputValid
+      !isPassValid.isInputValid || !isConfirmPassValid.isInputValid
     ) {
       setDisable(true);
     } else {
       setDisable(false);
     }
   };
+
   const handleChange = (e) => {
     setValues({ ...valuess, [e.target.name]: e.target.value });
     handleInputValidation(e);
   };
 
   const onSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(valuess);
     dispatch(register(valuess))
       .then(() => {
         setSuccessful(true);
@@ -109,7 +135,11 @@ const Register = () => {
           email: "",
           password: "",
           pancard: "",
+          confirmpassword:"",
         });
+        setTimeout(() => {
+          Navigate("/login");
+        }, 900);
       })
       .catch(() => {
         setSuccessful(false);
@@ -117,7 +147,7 @@ const Register = () => {
     setDisable(true);
     setTimeout(() => {
       dispatch(clearMessage());
-    }, 9000);
+    }, 900);
   };
 
   /**
@@ -125,18 +155,22 @@ const Register = () => {
    **/
   useEffect(() => {
     dispatch(clearMessage());
+    dispatch({ type: REGISTER_REQUEST });
   }, []);
-
+  useEffect(() => {
+    if (registererror) toast.error(registererror, { position: "top-center" });
+    if (success) toast.success("Registration Successfull", { position: "top-center" });
+  }, [registererror, success]);
   /**
    * 5.Actual content rendered on screen
    **/
   return (
-    <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+    <section className="vh-100 mt-1" style={{ backgroundColor: "#eee" }}>
       <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-lg-12 col-xl-11">
+          <div className="col-lg-12 col-xl-11" style={{marginBottom:"50px"}}>
             <div className="card text-black" style={{ borderRadius: "25px" }}>
-              <div className="card-body p-md-5">
+              <div className="card-body ">
                 <div className="row justify-content-center">
                   <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                     <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
@@ -243,6 +277,7 @@ const Register = () => {
                             value={valuess.password}
                             onChange={handleChange}
                             onBlur={handleInputValidation}
+                            title="Must contain at least one number,one special character and one uppercase and lowercase letter, and at least 8 or more characters"
                             required="required"
                           />
                         </div>
@@ -253,6 +288,41 @@ const Register = () => {
                           style={{ marginLeft: "50px" }}
                         >
                           {isPassValid.errorMessage}
+                        </div>
+                      ) : null}
+                      <div className="d-flex flex-row align-items-center mb-4">
+                        <i
+                          className="fas fa-lock fa-lg me-3 fa-fw "
+                          data-coreui-toggle="tooltip"
+                          data-coreui-html="true"
+                          title="length: 8-15 characters ,
+                                lowercase letter : atleat one, 
+                                uppercase letter : atleat one,
+                                numeric digit :atleat one,
+                                special character : atleat one"
+                        ></i>
+                        <div className="form-outline flex-fill mb-0">
+                          <input
+                            type="password"
+                            aria-label="confirmpassword"
+                            name="confirmpassword"
+                            id="form3Example4c"
+                            className="form-control"
+                            placeholder="Confirm Password"
+                            value={valuess.confirmpassword}
+                            onChange={handleChange}
+                            onBlur={handleInputValidation}
+                            title="Must contain at least one number,one special character and one uppercase and lowercase letter, and at least 8 or more characters"
+                            required="required"
+                          />
+                        </div>
+                      </div>
+                      {!isConfirmPassValid.isInputValid ? (
+                        <div
+                          className="text-danger mb-3"
+                          style={{ marginLeft: "50px" }}
+                        >
+                          {isConfirmPassValid.errorMessage}
                         </div>
                       ) : null}
 
@@ -269,28 +339,9 @@ const Register = () => {
                         </button>
                       </div>
                     </form>
-                    {message && (
-                      <div className="form-group">
-                        <div
-                          className={
-                            successful
-                              ? "alert alert-success"
-                              : "alert alert-danger"
-                          }
-                          role="alert"
-                        >
-                          {message === "registartion done" ? (
-                            <p>
-                              Account has been registered
-                              <br />
-                              Please <Link to="/login">Login</Link> to continue
-                            </p>
-                          ) : (
-                            message
-                          )}
-                        </div>
-                      </div>
-                    )}
+
+                    {registererror && <ToastContainer />}
+                    {success && <ToastContainer />}
                   </div>
                   <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                     <img

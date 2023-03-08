@@ -46,13 +46,14 @@ export const validatePan = (checkingText) => {
   }
 };
 export const validateName = (checkingText) => {
+  const reg=/^[a-zA-Z ]+$/;
   if (checkingText === null || checkingText === "") {
     return {
       isInputValid: false,
       errorMessage: "Name is required",
     };
   }
-  if (checkingText.length >= 3) {
+  if (reg.exec(checkingText)!==null && checkingText.length >= 3) {
     return {
       isInputValid: true,
       errorMessage: "",

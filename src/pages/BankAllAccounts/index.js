@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { create_account } from "../../redux/actions/createAccount";
@@ -7,10 +8,16 @@ import { get_all_bankAccounts } from "../../redux/actions/pan_actions";
 import image_map from "../../utils/images";
 import classes from "./index.module.css";
 
+/**
+ * BankAllAccounts Page Shows all the Accounts user has in the particular bank.
+ * @returns {React.FunctionComponent}
+ */
+
 const BankAllAccounts = () => {
   let { bankName } = useParams();
   const [errors, setError] = useState({ Balance: null, FixedDeposits: null });
   let user = useSelector((state) => state.auth.user);
+  
   const { message } = useSelector((state) => state.message);
   const [valuess, setValues] = useState({
     AccountType: "",
@@ -45,23 +52,12 @@ const BankAllAccounts = () => {
         [event.target.name]: message,
       };
     });
-    // if (
-    //   !message===null ||
-    //   !errors.Balance===null ||
-    //   !errors.FixedDeposits===null ||
-    //   valuess.AccountType===""
-    // ) {
-    //   setDisable(true);
-    // } else {
-    //   setDisable(false);
-    // }
   };
   const handleSubmit=()=>{
     dispatch(create_account({...valuess,pancard:user.pancard,name:user.name,bankName:bankName,email:user.email}))
-    if(message===""){
-      alert("Account created")
+    alert("Account created")
     }
-  }
+  
   const handleChange = (e) => {
     if (e.target.name === "Salary" || e.target.name === "Savings") {
       setValues({ ...valuess, ["AccountType"]: e.target.value });
@@ -113,7 +109,7 @@ const BankAllAccounts = () => {
               Add Account
             </button>
           </div>
-          <table class="table m-5">
+          <table class="table mt-4">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#Account No</th>
@@ -253,6 +249,7 @@ const BankAllAccounts = () => {
                     ) : null}
                   </form>
                 </div>
+                
                 <div className="modal-footer">
                   <button
                     type="button"

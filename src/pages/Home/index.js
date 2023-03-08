@@ -49,7 +49,7 @@ const Home = () => {
             >
               <div className={`${classes["service-item"]}  position-relative`}>
                 <div className={classes["icon"]}>
-                  <i class="fa-solid fa-mountain-city"></i>
+                  <i className="fa-solid fa-mountain-city"></i>
                 </div>
                 <h3>Centralizes Access</h3>
                 <p className="h6">
@@ -60,51 +60,51 @@ const Home = () => {
             </div>
 
             <div
-              class="col-lg-4 col-md-6 aos-init aos-animate"
+              className="col-lg-4 col-md-6 aos-init aos-animate"
               data-aos="fade-up"
               data-aos-delay="200"
             >
               <div className={`${classes["service-item"]}  position-relative`}>
                 <div className={classes["icon"]}>
-                  <i class="fa-solid fa-arrow-up-from-ground-water"></i>
+                  <i className="fa-solid fa-arrow-up-from-ground-water"></i>
                 </div>
                 <h3>Data Security</h3>
                 <p className="h6">
                   Keeping your private data safe is our priority.
                 </p>
-                <a href="service-details.html" class="readmore stretched-link">
-                  Learn more <i class="bi bi-arrow-right"></i>
+                <a href="service-details.html" className="readmore stretched-link">
+                  Learn more <i className="bi bi-arrow-right"></i>
                 </a>
               </div>
             </div>
 
             <div
-              class="col-lg-4 col-md-6 aos-init aos-animate"
+              className="col-lg-4 col-md-6 aos-init aos-animate"
               data-aos="fade-up"
               data-aos-delay="300"
             >
               <div className={`${classes["service-item"]}  position-relative`}>
                 <div className={classes["icon"]}>
-                  <i class="fa-solid fa-compass-drafting"></i>
+                  <i className="fa-solid fa-compass-drafting"></i>
                 </div>
                 <h3>Leaders of Market</h3>
                 <p className="h6">
                   We are a leading centralized service provider.
                 </p>
-                <a href="service-details.html" class="readmore stretched-link">
-                  Learn more <i class="bi bi-arrow-right"></i>
+                <a href="service-details.html" className="readmore stretched-link">
+                  Learn more <i className="bi bi-arrow-right"></i>
                 </a>
               </div>
             </div>
 
             <div
-              class="col-lg-4 col-md-6 aos-init aos-animate"
+              className="col-lg-4 col-md-6 aos-init aos-animate"
               data-aos="fade-up"
               data-aos-delay="400"
             >
               <div className={`${classes["service-item"]}  position-relative`}>
                 <div className={classes["icon"]}>
-                  <i class="fa-solid fa-trowel-bricks"></i>
+                  <i className="fa-solid fa-trowel-bricks"></i>
                 </div>
                 <h3>User Friendly</h3>
                 <p className="h6">
@@ -115,13 +115,13 @@ const Home = () => {
             </div>
 
             <div
-              class="col-lg-4 col-md-6 aos-init aos-animate"
+              className="col-lg-4 col-md-6 aos-init aos-animate"
               data-aos="fade-up"
               data-aos-delay="500"
             >
               <div className={`${classes["service-item"]}  position-relative`}>
                 <div className={classes["icon"]}>
-                  <i class="fa-solid fa-helmet-safety"></i>
+                  <i className="fa-solid fa-helmet-safety"></i>
                 </div>
                 <h3>Customer Obsession</h3>
                 <p className="h6">
@@ -132,13 +132,13 @@ const Home = () => {
             </div>
 
             <div
-              class="col-lg-4 col-md-6 aos-init aos-animate"
+              className="col-lg-4 col-md-6 aos-init aos-animate"
               data-aos="fade-up"
               data-aos-delay="600"
             >
               <div className={`${classes["service-item"]}  position-relative`}>
                 <div className={classes["icon"]}>
-                  <i class="fa-solid fa-arrow-up-from-ground-water"></i>
+                  <i className="fa-solid fa-arrow-up-from-ground-water"></i>
                 </div>
                 <h3>Think Big</h3>
                 <p className="h6">
