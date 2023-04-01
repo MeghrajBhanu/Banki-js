@@ -26,13 +26,14 @@ export const get_all_pancard = (pan) => (dispatch) => {
   dispatch({
     type: FETCH_PANCARD_ALL_REQUEST,
   });
-  FetchService.get_all_pancard(pan)
+  return FetchService.get_all_pancard(pan)
     .then((response) => {
-      console.log(response);
+      
       dispatch({
         type: FETCH_PANCARD_ALL_SUCCESS,
         payload: response.data.data,
       });
+      console.log(response.data.data)
       return Promise.resolve();
     })
     .catch(function (error) {
@@ -42,7 +43,7 @@ export const get_all_pancard = (pan) => (dispatch) => {
           error.response.data.message) ||
         error.message ||
         error.toString();
-
+      console.log(error);
       dispatch({
         type: FETCH_PANCARD_ALL_FAIL,
         payload: message,

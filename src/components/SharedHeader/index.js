@@ -18,9 +18,9 @@ const SharedHeader = ({ name, pancard ,flagged}) => {
                 }}
               >
                 <div className={classes["fadeInUp"]}>
-                  <h2 className="text-center mb-4">Welcome {name} !</h2>
+                  <h2 className="text-center mb-4">Welcome {name?name:"user"} !</h2>
                   <p className="text-center mt-3">
-                    Here are your {flagged} bank accounts linked with {pancard?pancard:user.pancard}
+                    Here are your {flagged} bank accounts linked with {pancard?pancard:user?.pancard}
                   </p>
                 </div>
               </div>

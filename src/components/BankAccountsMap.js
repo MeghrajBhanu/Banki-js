@@ -12,6 +12,7 @@ import { flag_account } from "../redux/actions/pan_actions";
  */
 
 const BankAccountsMap = ({
+  
   id,
   name,
   email,
@@ -33,7 +34,7 @@ const BankAccountsMap = ({
   };
   return (
     
-    <div className={classes["card"]}>
+    <div className={classes["card"]} key={id} >
       <img src={image_map[bankName]} alt="bankLogo" />
       <div className={classes["card-body"]}>
         <div className="text-center">
@@ -46,7 +47,7 @@ const BankAccountsMap = ({
           <br />
           Total balance: {balance}
         </p>
-        <button className="btn btn-secondary" onClick={handleId} style={{marginLeft:"95px"}}>
+        <button name="view more" className="btn btn-secondary" onClick={handleId} style={{marginLeft:"95px"}}>
           {flagged?"UnFlag":"View More"}
         </button>
       </div>

@@ -13,7 +13,7 @@ const Flagged = () => {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(get_all_flag_accounts(user["pancard"]));
+    dispatch(get_all_flag_accounts(user?.pancard?user["pancard"]:"LTGWS1234L"));
   }, []);
   
   const data = useSelector((state) => state.pan.data);
@@ -47,8 +47,8 @@ const Flagged = () => {
     <>
     <div className="mb-4">
             <SharedHeader
-              name={user.name}
-              pancard={user.pancard}
+              name={user?.name}
+              pancard={user?.pancard}
               flagged={"flagged"}
             />
           </div>

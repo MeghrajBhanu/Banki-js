@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardsShimmer snapshot test 1`] = `
+Array [
+  <div
+    className="title"
+  />,
+  <div
+    className="sort_bar"
+  />,
+  <div
+    className="cards"
+  >
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+    <div
+      className="card"
+    >
+      loading..
+    </div>
+  </div>,
+]
+`;

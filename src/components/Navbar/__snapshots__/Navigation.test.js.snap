@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation snapshot test 1`] = `
+<nav
+  className="navbar navbar-expand-md navbar-light bg-dark bg-gradient sticky-top"
+>
+  <div
+    className="container"
+  >
+    <a
+      className="navbar-brand nav-link"
+      href="/"
+      onClick={[Function]}
+    >
+      App
+    </a>
+    <button
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      className="navbar-toggler"
+      data-bs-target="#navbarSupportedContent"
+      data-bs-toggle="collapse"
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarSupportedContent"
+    >
+      <ul
+        className="navbar-nav align-items-center ms-auto mb-2 mb-lg-0"
+      >
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-current="page"
+            className="nav-link active"
+            href="/"
+            onClick={[Function]}
+          >
+            Home
+          </a>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/register"
+            onClick={[Function]}
+          >
+            Register
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;

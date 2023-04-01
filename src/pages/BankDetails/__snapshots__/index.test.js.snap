@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BankDetails snapshot test 1`] = `
+<div>
+  <h1>
+    Loading
+  </h1>
+  <div
+    aria-hidden="true"
+    aria-labelledby="exampleModalLabel"
+    className="modal fade"
+    id="exampleModal"
+    role="dialog"
+    tabIndex="-1"
+  >
+    <div
+      className="modal-dialog"
+      role="document"
+    >
+      <div
+        className="modal-content"
+      >
+        <div
+          className="modal-header"
+        >
+          <h5
+            className="modal-title"
+            id="exampleModalLabel"
+          >
+            Attention!
+          </h5>
+          <button
+            aria-label="Close"
+            className="close"
+            data-bs-dismiss="modal"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ×
+            </span>
+          </button>
+        </div>
+        <div
+          className="modal-body"
+        >
+          Are you sure you want to flag this account?
+        </div>
+        <div
+          className="modal-footer"
+        >
+          <button
+            className="btn btn-secondary"
+            data-bs-dismiss="modal"
+            type="button"
+          >
+            No
+          </button>
+          <button
+            className="btn btn-primary"
+            data-bs-dismiss="modal"
+            onClick={[Function]}
+            type="button"
+          >
+            Yes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    style={
+      Object {
+        "marginTop": "90px",
+      }
+    }
+  >
+    <div
+      className="card"
+    >
+      <div
+        className="container-fliud"
+      >
+        <div
+          className="wrapper row"
+        >
+          <div
+            className="preview col-md-6"
+          >
+            <img
+              alt="bankLogo"
+              className="bank-image"
+              style={
+                Object {
+                  "objectFit": "cover",
+                  "width": "100%",
+                }
+              }
+            />
+          </div>
+          <div
+            className="details col-md-6"
+          >
+            <h2
+              className="primary-title mt-4 mb-2"
+              style={
+                Object {
+                  "marginLeft": "10px",
+                }
+              }
+            />
+            <h4
+              style={
+                Object {
+                  "marginLeft": "10px",
+                }
+              }
+            >
+              Your details associated with 
+            </h4>
+            <h6
+              style={
+                Object {
+                  "marginLeft": "10px",
+                }
+              }
+            >
+              Registerd Name:
+            </h6>
+            <p
+              style={
+                Object {
+                  "marginLeft": "10px",
+                }
+              }
+            >
+              <span
+                className="mb-4"
+              >
+                <strong
+                  className="text-info"
+                >
+                  Email: 
+                </strong>
+                 
+              </span>
+              <br />
+              <span
+                className="mb-2"
+              >
+                <strong
+                  className="text-info"
+                >
+                  FixedDeposits: 
+                </strong>
+              </span>
+              <br />
+              <span
+                className="mb-2"
+              >
+                <strong
+                  className="text-info"
+                >
+                  Total balance: 
+                </strong>
+                 
+              </span>
+              <br />
+              <span
+                className="mb-2"
+              >
+                <strong
+                  className="text-info"
+                >
+                  AccountType: 
+                </strong>
+                 
+              </span>
+              <br />
+              <span
+                className="mb-2"
+              >
+                <strong
+                  className="text-info"
+                >
+                  AccountNumber: 
+                </strong>
+              </span>
+            </p>
+            <h6
+              className="mb-5"
+              style={
+                Object {
+                  "marginLeft": "10px",
+                }
+              }
+            >
+              Pancard: 
+            </h6>
+            <div
+              className="container mt-3"
+            >
+              <div
+                className="row d-flex justify-content-space-around align-items-space-between"
+              >
+                <div
+                  className="col-lg-3 col-xl-4"
+                >
+                  <button
+                    className="btn btn-primary mb-2"
+                    onClick={[Function]}
+                  >
+                    Return
+                  </button>
+                </div>
+                <div
+                  className="col-lg-3 col-xl-4"
+                >
+                  <button
+                    className="btn btn-primary "
+                    data-bs-target="#exampleModal"
+                    data-bs-toggle="modal"
+                  >
+                    Not your account?
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

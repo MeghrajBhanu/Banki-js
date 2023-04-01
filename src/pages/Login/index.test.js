@@ -6,13 +6,13 @@ import { mockLoginData, mock_Invalid_LoginData } from "./mockData";
 const user = userEvent.setup();
 describe("Login Page", () => {
   test("should show Login heading", () => {
-    render(renderComponent(<Login />));
+    renderComponent(<Login />);
     const value = screen.getAllByText(/Login/i);
     expect(value[0]).toBeInTheDocument();
   });
 
   test("should render the initial form", () => {
-    render(renderComponent(<Login />));
+    renderComponent(<Login />);
     expect(screen.getByRole("textbox", { name: "email" })).toBeInTheDocument();
     expect(
       screen.getByRole("textbox", { name: "pancard" })
@@ -21,7 +21,7 @@ describe("Login Page", () => {
     expect(screen.getByRole("button", { name: "Login" })).toBeInTheDocument();
   });
   test("should handle input changes", async () => {
-    render(renderComponent(<Login />));
+    renderComponent(<Login />);
     const email = screen.getByRole("textbox", { name: "email" });
     const password = screen.getByPlaceholderText("Password");
     const pancard = screen.getByRole("textbox", { name: "pancard" });
@@ -37,8 +37,8 @@ describe("Login Page", () => {
     expect(pancard).toHaveValue(mockLoginData.pancard);
   });
   test("should handle errors in input", async () => {
-    render(renderComponent(<Login />));
-
+    renderComponent(<Login />);
+    
     const email = screen.getByRole("textbox", { name: "email" });
     const password = screen.getByPlaceholderText("Password");
     const pancard = screen.getByRole("textbox", { name: "pancard" });
@@ -64,4 +64,43 @@ describe("Login Page", () => {
     await user.type(pancard, mock_Invalid_LoginData.pancard);
     expect(screen.getByText("Invalid Pan Number")).toBeInTheDocument();
   });
+  test("should handle unsucessfull login(email)",async()=>{
+    let {store}=renderComponent(<Login/>);
+    const email = screen.getByRole("textbox", { name: "email" });
+    const password = screen.getByPlaceholderText("Password");
+    const pancard = screen.getByRole("textbox", { name: "pancard" });
+    const login=screen.getByRole('button', { name: /login/i });
+     
+    await user.type(email, mockLoginData.email);
+    await user.type(password, mockLoginData.password);
+    await user.type(pancard, "POIYU1234L");
+    await user.click(document.body);
+    expect(login).toBeEnabled()
+    await user.click(login);
+    
+    expect(store.getState().auth.token).toBe(null);  
+  })
+  test("should handle sucessfull Login",async()=>{
+    
+    let {store}=renderComponent(<Login />);
+    screen.logTestingPlaygroundURL()
+    const email = screen.getByRole("textbox", { name: "email" });
+    const password = screen.getByPlaceholderText("Password");
+    const pancard = screen.getByRole("textbox", { name: "pancard" });
+    const login=screen.getByRole('button', { name: /login/i });
+    
+    
+    await user.type(email, mockLoginData.email);
+    await user.type(password, mockLoginData.password);
+    await user.type(pancard, mockLoginData.pancard);
+    await user.click(document.body);
+    expect(login).toBeEnabled()
+    await user.click(login);
+    
+    expect(store.getState().auth.token).not.toBe(null);
+    
+    
+
+  })
+  
 });

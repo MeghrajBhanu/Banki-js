@@ -18,7 +18,7 @@ export const register = (obj) => (dispatch) => {
       dispatch({
         type: REGISTER_SUCCESS,
       });
-
+      
       dispatch({
         type: SET_MESSAGE,
         payload: response.data.message,
@@ -27,7 +27,7 @@ export const register = (obj) => (dispatch) => {
       return Promise.resolve();
     })
     .catch((error) => {
-      console.log(error);
+      
       const message =
         (error.response &&
           error.response.data &&

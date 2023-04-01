@@ -127,6 +127,7 @@ const Register = () => {
   };
 
   const onSubmit = (e) => {
+    e.preventDefault();
     dispatch(register(valuess))
       .then(() => {
         setSuccessful(true);

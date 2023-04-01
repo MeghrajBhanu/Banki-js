@@ -11,6 +11,7 @@ const getToken = () => {
 
 const get_all_pancard = async (pan) => {
   const token = getToken();
+  
   return await axios.get(
     API_URL + "/pancard?panNum=" + pan,
     { headers: { Authorization: `Bearer ${token}` } },

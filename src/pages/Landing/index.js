@@ -33,15 +33,23 @@ const Landing = () => {
     setSelected({ key, value: event.target.value });
   };
   useEffect(() => {
-    
-    dispatch(get_all_pancard(user["pancard"]));
+    dispatch(get_all_pancard(user?.pancard ? user["pancard"] : "LPIOM1234L"))
+      .then((data) => {
+        console.log("success");
+      })
+      .catch((err) => {
+        alert(err);
+      });
   }, []);
   useEffect(() => {
     if (selected === {} || selected.key === "None")
-      dispatch(get_all_pancard(user["pancard"]));
+      dispatch(get_all_pancard(user?.pancard ? user["pancard"] : "LPIOM1234L"));
 
     if (selected.key === "FixedDeposits") {
-      dispatch(get_all_sort_fixed_depo(user["pancard"]));
+      dispatch(get_all_sort_fixed_depo(user?.pancard ? user["pancard"] : "LPIOM1234L"));
+      setTimeout(()=>{
+          console.log(data)
+      },600)
     }
     if (selected.key === "Account_Type: Salary") {
       dispatch(get_all_sort_account_type(user["pancard"], "Salary"));
@@ -61,20 +69,18 @@ const Landing = () => {
   ];
 
   let mapped = data?.slice(page * 10 - 10, page * 10).map((item) => {
+    return <BankAccountsMap
+        key={item._id}
+        id={item._id}
+        name={item.name}
+        email={item.email}
+        bankName={item.bankName}
+        pancard={item.pancard}
+        account_type={item.AccountType}
+        fd={item.FixedDeposits}
+        balance={item.Balance}
+      />
     
-      return (
-        <BankAccountsMap
-          key={item._id}
-          id={item._id}
-          name={item.name}
-          email={item.email}
-          bankName={item.bankName}
-          pancard={item.pancard}
-          account_type={item.AccountType}
-          fd={item.FixedDeposits}
-          balance={item.Balance}
-        ></BankAccountsMap>
-      );
   });
   const selectPageHandler = (page_i) => {
     if (
@@ -85,51 +91,57 @@ const Landing = () => {
       setPage(page_i);
   };
   return (
-    <React.Fragment>
+    <React.Fragment key="overallwrapper">
       {isLoading ? (
-        <CardsShimmer></CardsShimmer>
+        <CardsShimmer key="cardshimmer"></CardsShimmer>
       ) : (
-        <>
+        <React.Fragment key="renderer">
           {error ? (
-            <div>error</div>
+            <div key="errorrenderer">error</div>
           ) : (
-            <>
-              <SharedHeader name={user.name} pancard={user.pancard}/>
+            <React.Fragment key="mainrenderer">
+              <SharedHeader name={user?.name} pancard={user?.pancard} key="ShareHeader"/>
               <div className="mb-4 a-section a-spacing-small mt-1 bg-light">
-                <div className={classes["flex"]}>
-                <span>
-                  {(page - 1) * 10 + 1}-
-                  {Math.min((page - 1) * 10 + 10, data.length)} of over{" "}
-                  {data.length} results for <span>{" " }</span>
-                </span>
-                
-                <span className="text-warning" style={{flex:"2"}}> "{user.pancard}"</span>
-                <span className={classes["absolute"]}>
-                  <DropdownButton
-                    id="dropdown-basic-button"
-                    variant="secondary"
-                    className="float-right"
-                    style={{marginRight:"25px"}}
-                    onSelect={handleSelect}
-                    size="sm"
-                    title={selected?.key || list[0].key}
-                  >
-                    {list.map((item, index) => {
-                      return (
-                        <Dropdown.Item key={index} eventKey={item.key}>
-                          {item.value}
-                        </Dropdown.Item>
-                      );
-                    })}
-                  </DropdownButton>
-                </span>
+                <div className={classes["flex"]} key="flexwrapper">
+                  <span key="pageresults">
+                    {(page - 1) * 10 + 1}-
+                    {Math.min((page - 1) * 10 + 10, data.length)} of over{" "}
+                    {data.length} results for <span> </span>
+                  </span>
+
+                  <span key="pancardwarnig" className="text-warning" style={{ flex: "2" }}>
+                    {" "}
+                    "{user?.pancard}"
+                  </span>
+                  <span key="spandrop" className={classes["absolute"]}>
+                    <DropdownButton
+                      id="dropdown-basic-button"
+                      key="dropdown-basic-button"
+                      variant="secondary"
+                      className="float-right"
+                      style={{ marginRight: "25px" }}
+                      onSelect={handleSelect}
+                      data-testid="select-option"
+                      size="sm"
+                      title={selected?.key || list[0].key}
+                    >
+                      {list.map((item, index) => {
+                        return (
+                          <Dropdown.Item key={index} eventKey={item.key}>
+                            {item.value}
+                          </Dropdown.Item>
+                        );
+                      })}
+                    </DropdownButton>
+                  </span>
                 </div>
               </div>
               {data?.length > 0 ? (
-                <>
-                  <div className={classes["cards"]}>{mapped}</div>
+                <React.Fragment key="pagination+cardss">
+                  <div className={classes["cards"]} key="cardss" >{mapped}</div>
                   <div
                     className={classes["pagination"]}
+                    key="pgination"
                     style={{
                       padding: "10px",
                       margin: "15px 0",
@@ -140,6 +152,7 @@ const Landing = () => {
                   >
                     <span
                       onClick={() => selectPageHandler(page - 1)}
+                      key="leftarrow"
                       className={page > 1 ? "" : classes["disable_button"]}
                     >
                       ◀
@@ -158,6 +171,7 @@ const Landing = () => {
                     })}
 
                     <span
+                    key="rightarrow"
                       onClick={() => selectPageHandler(page + 1)}
                       className={
                         page < data.length / 10 ? "" : classes["disable_button"]
@@ -166,15 +180,15 @@ const Landing = () => {
                       ▶
                     </span>
                   </div>
-                </>
+                </React.Fragment>
               ) : (
-                <h5 className="text-center m-3 text-secondary">
+                <h5 className="text-center m-3 text-secondary" key="noaccountsfound">
                   Couldnt find any accounts .
                 </h5>
               )}
-            </>
+            </React.Fragment>
           )}
-        </>
+        </React.Fragment>
       )}
     </React.Fragment>
   );

@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flagged snapshot test 1`] = `
+Array [
+  <div
+    className="mb-4"
+  >
+    <section
+      className="shared_header"
+    >
+      <div
+        className="overlay"
+      >
+        <div
+          className="container"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col"
+              data-wow-delay="0.6s"
+              style={
+                Object {
+                  "animationDelay": "0.6s",
+                  "animationName": "fadeInUp",
+                  "visibility": "visible",
+                }
+              }
+            >
+              <div
+                className="fadeInUp"
+              >
+                <h2
+                  className="text-center mb-4"
+                >
+                  Welcome 
+                  user
+                   !
+                </h2>
+                <p
+                  className="text-center mt-3"
+                >
+                  Here are your 
+                  flagged
+                   bank accounts linked with 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>,
+  <h5
+    className="text-center mb-5 mt-5"
+  >
+    OOPS!!
+  </h5>,
+  <h6
+    className="text-center "
+  >
+    There are no flagged accounts 
+  </h6>,
+]
+`;
+
+exports[`snapshot test 1`] = `
+Array [
+  <div
+    className="mb-4"
+  >
+    <section
+      className="shared_header"
+    >
+      <div
+        className="overlay"
+      >
+        <div
+          className="container"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col"
+              data-wow-delay="0.6s"
+              style={
+                Object {
+                  "animationDelay": "0.6s",
+                  "animationName": "fadeInUp",
+                  "visibility": "visible",
+                }
+              }
+            >
+              <div
+                className="fadeInUp"
+              >
+                <h2
+                  className="text-center mb-4"
+                >
+                  Welcome 
+                  user
+                   !
+                </h2>
+                <p
+                  className="text-center mt-3"
+                >
+                  Here are your 
+                  flagged
+                   bank accounts linked with 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>,
+  <h5
+    className="text-center mb-5 mt-5"
+  >
+    OOPS!!
+  </h5>,
+  <h6
+    className="text-center "
+  >
+    There are no flagged accounts 
+  </h6>,
+]
+`;

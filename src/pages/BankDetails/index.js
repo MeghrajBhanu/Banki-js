@@ -79,7 +79,7 @@ const BankDetails = () => {
             <div className="wrapper row">
               <div className="preview col-md-6">
                 <img
-                  src={image_map[data.bankName]}
+                  src={image_map[data?.bankName]}
                   className="bank-image"
                   alt="bankLogo"
                   style={{
@@ -89,35 +89,35 @@ const BankDetails = () => {
                 />
               </div>
               <div className="details col-md-6">
-                <h2 className="primary-title mt-4 mb-2" style={{marginLeft:"10px"}}>{data.bankName}</h2>
+                <h2 className="primary-title mt-4 mb-2" style={{marginLeft:"10px"}}>{data?.bankName}</h2>
 
-                <h4 style={{marginLeft:"10px"}}>Your details associated with {data.bankName}</h4>
-                <h6 style={{marginLeft:"10px"}}>Registerd Name:{data.name}</h6>
+                <h4 style={{marginLeft:"10px"}}>Your details associated with {data?.bankName}</h4>
+                <h6 style={{marginLeft:"10px"}}>Registerd Name:{data?.name}</h6>
 
                 <p  style={{marginLeft:"10px"}}>
                   <span className="mb-4">
-                    <strong className="text-info">Email: </strong> {data.email}
+                    <strong className="text-info">Email: </strong> {data?.email}
                   </span>
                   <br />
                   <span className="mb-2">
                     <strong className="text-info">FixedDeposits: </strong>
                   </span>
-                  {data.FixedDeposits}
+                  {data?.FixedDeposits}
                   <br />
                   <span className="mb-2">
-                    <strong className="text-info">Total balance: </strong> {data.Balance}
+                    <strong className="text-info">Total balance: </strong> {data?.Balance}
                   </span>
                   <br />
                   <span className="mb-2">
-                    <strong className="text-info">AccountType: </strong> {data.AccountType}
+                    <strong className="text-info">AccountType: </strong> {data?.AccountType}
                   </span>
                   <br />
                   <span className="mb-2">
                     <strong className="text-info">AccountNumber: </strong>
                   </span>
-                  {data._id}
+                  {data?._id}
                 </p>
-                <h6 className="mb-5" style={{marginLeft:"10px"}}>Pancard: {data.pancard}</h6>
+                <h6 className="mb-5" style={{marginLeft:"10px"}}>Pancard: {data?.pancard}</h6>
                 <div className="container mt-3">
                   <div className="row d-flex justify-content-space-around align-items-space-between">
                     <div className="col-lg-3 col-xl-4">

@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page snapshot test 1`] = `
+Array [
+  <div
+    className="first_container"
+  >
+    <img
+      alt="landing"
+      className="image_flex"
+      src="home.jpg"
+    />
+    <div
+      className="content"
+    >
+      <p
+        className="lead-text text-center p-2 h5 mt-5"
+      >
+        We are a services group focused on providing you
+        <br />
+        <br />
+        with all your account details associated with different
+        <br />
+        <br />
+        banks at a single point
+      </p>
+      <h6
+        className="text-center p-1"
+      >
+        Don't have a account yet? 
+        <a
+          href="/register"
+          onClick={[Function]}
+        >
+          Register
+        </a>
+      </h6>
+    </div>
+  </div>,
+  <section
+    className="services section-bg mt-4"
+    id="services"
+  >
+    <div
+      className="container aos-init aos-animate"
+      data-aos="fade-up"
+    >
+      <div
+        className="section-header"
+      >
+        <h2
+          style={
+            Object {
+              "padding": "20px",
+            }
+          }
+        >
+          About Us
+        </h2>
+        <p>
+          12Lakh+ customers use our website on daily basis.
+        </p>
+      </div>
+      <div
+        className="row gy-4"
+      >
+        <div
+          className="col-lg-4 col-md-6 aos-init aos-animate"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div
+            className="service-item  position-relative"
+          >
+            <div
+              className="icon"
+            >
+              <i
+                className="fa-solid fa-mountain-city"
+              />
+            </div>
+            <h3>
+              Centralizes Access
+            </h3>
+            <p
+              className="h6"
+            >
+              We provide centralized access to all your bank accounts
+            </p>
+          </div>
+        </div>
+        <div
+          className="col-lg-4 col-md-6 aos-init aos-animate"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div
+            className="service-item  position-relative"
+          >
+            <div
+              className="icon"
+            >
+              <i
+                className="fa-solid fa-arrow-up-from-ground-water"
+              />
+            </div>
+            <h3>
+              Data Security
+            </h3>
+            <p
+              className="h6"
+            >
+              Keeping your private data safe is our priority.
+            </p>
+            <a
+              className="readmore stretched-link"
+              href="service-details.html"
+            >
+              Learn more 
+              <i
+                className="bi bi-arrow-right"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          className="col-lg-4 col-md-6 aos-init aos-animate"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div
+            className="service-item  position-relative"
+          >
+            <div
+              className="icon"
+            >
+              <i
+                className="fa-solid fa-compass-drafting"
+              />
+            </div>
+            <h3>
+              Leaders of Market
+            </h3>
+            <p
+              className="h6"
+            >
+              We are a leading centralized service provider.
+            </p>
+            <a
+              className="readmore stretched-link"
+              href="service-details.html"
+            >
+              Learn more 
+              <i
+                className="bi bi-arrow-right"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          className="col-lg-4 col-md-6 aos-init aos-animate"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <div
+            className="service-item  position-relative"
+          >
+            <div
+              className="icon"
+            >
+              <i
+                className="fa-solid fa-trowel-bricks"
+              />
+            </div>
+            <h3>
+              User Friendly
+            </h3>
+            <p
+              className="h6"
+            >
+              Our User Experience make us apart from all otherservice providers.
+            </p>
+          </div>
+        </div>
+        <div
+          className="col-lg-4 col-md-6 aos-init aos-animate"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <div
+            className="service-item  position-relative"
+          >
+            <div
+              className="icon"
+            >
+              <i
+                className="fa-solid fa-helmet-safety"
+              />
+            </div>
+            <h3>
+              Customer Obsession
+            </h3>
+            <p
+              className="h6"
+            >
+              We work vigorously to earn and keep our customers trust.
+            </p>
+          </div>
+        </div>
+        <div
+          className="col-lg-4 col-md-6 aos-init aos-animate"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <div
+            className="service-item  position-relative"
+          >
+            <div
+              className="icon"
+            >
+              <i
+                className="fa-solid fa-arrow-up-from-ground-water"
+              />
+            </div>
+            <h3>
+              Think Big
+            </h3>
+            <p
+              className="h6"
+            >
+              We constantly raise our bars in every aspect. Thinking small is a self-fulfilling prophecy
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>,
+  <section
+    className="contact aos-init aos-animate"
+    data-aos="fade-up"
+    data-aos-delay="400"
+  >
+    <div
+      className="overlay"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-md-6 wow "
+            data-wow-delay="0.6s"
+            style={
+              Object {
+                "animationDelay": "0.6s",
+                "animationName": "fadeInUp",
+                "visibility": "visible",
+              }
+            }
+          >
+            <div
+              className="fadeInUp"
+            >
+              <h2
+                className="text-uppercase mb-4"
+              >
+                Contact Us
+              </h2>
+              <p>
+                Got any sugesstions , requests , queries? Reach us out at below address
+                 
+              </p>
+              <address>
+                <p>
+                  <span
+                    className="fa"
+                  >
+                    <i
+                      className="fa fa-map-marker"
+                    />
+                  </span>
+                  Hyderabad, Telangana, India
+                </p>
+                <p>
+                  <span
+                    className="fa"
+                  >
+                    <i
+                      className="fa fa-phone"
+                    />
+                  </span>
+                   
+                  0234 234234
+                </p>
+                <p>
+                  <span
+                    className="fa"
+                  >
+                    <i
+                      className="fa fa-envelope"
+                    />
+                  </span>
+                   
+                  app@site.com
+                </p>
+              </address>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>,
+  <footer>
+    <div
+      className="container"
+    >
+      <div
+        className="row"
+      >
+        <p>
+          Copyright © 2023 Bhanu | Design: 
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            Home
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>,
+]
+`;

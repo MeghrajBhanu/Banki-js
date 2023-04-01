@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banks snapshot test 1`] = `
+Array [
+  <section
+    className="shared_header"
+  >
+    <div
+      className="overlay"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col"
+            data-wow-delay="0.6s"
+            style={
+              Object {
+                "animationDelay": "0.6s",
+                "animationName": "fadeInUp",
+                "visibility": "visible",
+              }
+            }
+          >
+            <div
+              className="fadeInUp"
+            >
+              <h2
+                className="text-center mb-4"
+              >
+                Welcome 
+                user
+                 !
+              </h2>
+              <p
+                className="text-center mt-3"
+              >
+                Here are your 
+                 bank accounts linked with 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>,
+  <div
+    className="d-flex flex-wrap justify-content-around mt-5"
+  >
+    <img
+      alt="bank logo"
+      className=" rounded img-thumbnail"
+      id="image"
+      name="Bank1"
+      onClick={[Function]}
+      src="bank.png"
+      style={
+        Object {
+          "background": "rgba(0, 0, 0, 0.4)",
+          "margin": "1em",
+          "transition": "all ease 1s",
+          "width": "400px",
+        }
+      }
+    />
+    <img
+      alt="bank logo"
+      className=" rounded img-thumbnail"
+      id="image"
+      name="Bank2"
+      onClick={[Function]}
+      src="bank2.png"
+      style={
+        Object {
+          "background": "rgba(0, 0, 0, 0.4)",
+          "margin": "1em",
+          "transition": "all ease 1s",
+          "width": "400px",
+        }
+      }
+    />
+    <img
+      alt="bank logo"
+      className=" rounded img-thumbnail"
+      id="image"
+      name="Bank3"
+      onClick={[Function]}
+      src="bank3.png"
+      style={
+        Object {
+          "background": "rgba(0, 0, 0, 0.4)",
+          "margin": "1em",
+          "transition": "all ease 1s",
+          "width": "400px",
+        }
+      }
+    />
+    <img
+      alt="bank logo"
+      className=" rounded img-thumbnail"
+      id="image"
+      name="Bank4"
+      onClick={[Function]}
+      src="bank4.png"
+      style={
+        Object {
+          "background": "rgba(0, 0, 0, 0.4)",
+          "margin": "1em",
+          "transition": "all ease 1s",
+          "width": "400px",
+        }
+      }
+    />
+  </div>,
+]
+`;

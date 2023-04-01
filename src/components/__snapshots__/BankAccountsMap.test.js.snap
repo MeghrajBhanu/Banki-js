@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BankAccountsMap snapshot test 1`] = `
+<div
+  className="card"
+>
+  <img
+    alt="bankLogo"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="text-center"
+    >
+      <span
+        className="h6 "
+      />
+      <span>
+         --
+      </span>
+      <span
+        className="h3-h"
+      >
+        undefined Account
+      </span>
+    </div>
+    <p
+      className="text-center"
+    >
+      FixedDeposits: 
+      <br />
+      Total balance: 
+    </p>
+    <button
+      className="btn btn-secondary"
+      name="view more"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginLeft": "95px",
+        }
+      }
+    >
+      View More
+    </button>
+  </div>
+</div>
+`;
