@@ -68,7 +68,7 @@ const BankAllAccounts = () => {
   };
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(get_all_bankAccounts(user["pancard"], bankName));
+    dispatch(get_all_bankAccounts(user?user["pancard"]:"GTGSB1234L", bankName));
   }, []);
   const data = useSelector((state) => state.pan.data);
   const isLoading = useSelector((state) => state.pan.isLoading);

@@ -8,4 +8,9 @@ describe("BankAllAccounts", () => {
     const tree = renderer.create(onlywrap(<BankAllAccounts />)).toJSON();
     expect(tree).toMatchSnapshot();
   });
+  test.only("check", () => {
+    renderComponent(<BankAllAccounts />)
+    screen.logTestingPlaygroundURL()
+  });
+  
 });
