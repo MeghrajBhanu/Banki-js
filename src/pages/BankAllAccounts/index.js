@@ -54,7 +54,7 @@ const BankAllAccounts = () => {
     });
   };
   const handleSubmit=()=>{
-    dispatch(create_account({...valuess,pancard:user.pancard,name:user.name,bankName:bankName,email:user.email}))
+    dispatch(create_account({...valuess,pancard:user?.pancard,name:user?.name,bankName:bankName,email:user?.email}))
     alert("Account created")
     }
   
@@ -121,7 +121,7 @@ const BankAllAccounts = () => {
             <tbody>
               {data?.map((item, i) => {
                 return (
-                  <tr>
+                  <tr key={i}>
                     <th scope="row">{item._id}</th>
 
                     <td>{item.AccountType}</td>
@@ -268,6 +268,8 @@ const BankAllAccounts = () => {
                   </button>
                   <button
                     type="button"
+                    aria-label="Save changes"
+                    name="Save changes"
                     className="btn btn-primary"
                     data-bs-dismiss="modal"
                     onClick={handleSubmit}

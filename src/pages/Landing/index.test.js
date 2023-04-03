@@ -54,8 +54,18 @@ describe("Landing Page", () => {
     waitFor(() => {
       user.change(filter, { target: { value: "fixed_deposits" } });
       expect(fixed_deposits).toBeInTheDocument();
-      console.log(store.getState().pan.data.length);
-      expect(store.getState().pan.data.length === 1);
+    
+      expect(store.getState().pan.data.length ).toBe(0);
     });
   });
+  test("check navbar",()=>{
+    renderComponent(<Landing />)
+    const landing=screen.findByText(/Landing/i)
+    const flagged=screen.findByText(/Flagged/i)
+    waitFor(()=>{
+      expect(landing).toBeInTheDocument()
+      expect(flagged).toBeInTheDocument()
+    })
+    
+  })
 });

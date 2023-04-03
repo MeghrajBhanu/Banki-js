@@ -8,4 +8,8 @@ describe("BankAccountsMap", () => {
     const tree = renderer.create(onlywrap(<BankAccountsMap />)).toJSON();
     expect(tree).toMatchSnapshot();
   });
+  test("unflag",()=>{
+    renderComponent(<BankAccountsMap />)
+    screen.logTestingPlaygroundURL()
+  })
 });

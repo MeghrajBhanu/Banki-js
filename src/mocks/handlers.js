@@ -118,4 +118,10 @@ export const handlers = [
       );
     }
   ),
+  rest.post(`http://localhost:5000/api/v1/pancard/create`,async(req,res,ctx)=>{
+    const { AccountType, Balance, FixedDeposits } = await req.json();
+    if(AccountType && Balance && FixedDeposits){
+      return ctx.json({msg:"Account Created"})
+    }
+  })
 ];

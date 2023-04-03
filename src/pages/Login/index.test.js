@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { renderComponent } from "../../utils/test_helper";
+import { renderComponent,onlywrap } from "../../utils/test_helper";
 import Login from ".";
 import userEvent from "@testing-library/user-event";
 import { mockLoginData, mock_Invalid_LoginData } from "./mockData";
+import renderer from "react-test-renderer";
 const user = userEvent.setup();
 describe("Login Page", () => {
   test("should show Login heading", () => {
@@ -102,5 +103,9 @@ describe("Login Page", () => {
     
 
   })
+  test("snapshot test", () => {
+    const tree = renderer.create(onlywrap(<Login />)).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
   
 });

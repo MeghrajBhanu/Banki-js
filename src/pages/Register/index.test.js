@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { renderComponent } from "../../utils/test_helper";
+import { renderComponent,onlywrap } from "../../utils/test_helper";
 import Register from ".";
 import userEvent from "@testing-library/user-event";
 import { mockRegisterData, mock_Invalid_RegisterData } from "./mockData";
-
+import renderer from "react-test-renderer";
 const user = userEvent.setup();
 describe("Register Page", () => {
   test("should show register heading", () => {
@@ -139,5 +139,9 @@ describe("Register Page", () => {
     
 
   })
+  test("snapshot test", () => {
+    const tree = renderer.create(onlywrap(<Register />)).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
   
 });
